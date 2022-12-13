@@ -21,9 +21,46 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', [DashboardController::class,'index']);
+Route::get('/dashboard', function () {
+    return view('pages.dashboard', [
+        "title" => "Dashboard",
+    ]);
+});
 
-Route::get('/inputkehadiran', [KehadiranController::class,'index']);
+Route::get('/AdminDashboard', function () {
+    return view('pages.AdminDashboard', [
+        "title" => "Admin Dashboard"
+        // [DashboardController::class, 'index']
+    ]);
+});
+
+Route::get('/SuperAdminDashboard', function () {
+    return view('pages.SuperAdminDashboard', [
+        "title" => "Super Admin Dashboard"
+        // [DashboardController::class, 'index']
+    ]);
+});
+
+Route::get('/kehadiran', function () {
+    return view('pages.inputkehadiran', [
+        "title" => "Input Kehadiran",
+        [KehadiranController::class, 'index']
+    ]);
+});
+
+Route::get('/help', function () {
+    return view('pages.help', [
+        "title" => "Help"
+        // [DashboardController::class, 'index']
+    ]);
+});
+
+Route::get('/login', function () {
+    return view('pages.login', [
+        "title" => "Login"
+        // [LoginController::class, 'index']
+    ]);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
