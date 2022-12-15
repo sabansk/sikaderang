@@ -37,7 +37,7 @@
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="exampleInputFile">
-                <video id="camera-capture" autoplay></video>
+                <video id="camera-capture" width="40" height="80" autoplay></video>
                 <script>
                   var videoElement = document.getElementById('camera-capture');
                   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -49,7 +49,7 @@
                 <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
               </div>
               <div class="input-group-append">
-                <span class="input-group-text">Upload</span>
+                <span class="input-group-text">Capture</span>
               </div>
             </div>
           </div>
