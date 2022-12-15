@@ -15,9 +15,9 @@
             <img src="AdminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
             <div class="media-body">
               <h3 class="dropdown-item-title">
-                Nama Anak Magang
+                Nama User
               </h3>
-              <p class="text-sm">Nama Dinas Magang</p>
+              <p class="text-sm">Nama Dinas User</p>
             </div>
           </div>
           <!-- Message End -->
@@ -25,12 +25,12 @@
       </div>
     </li>
     <!-- Help Menu -->
-    <a class="nav-link navbar-icon" href="help.blade.php">
+    <a class="nav-link navbar-icon" href="/help">
       <img src="AdminLTE\dist\img\Help.png" alt="Help Icon" width="35px" height="35px">
     </a>
     <!-- Log Out Menu -->
     <li class="nav-item">
-      <a class="nav-link navbar-icon" href="login.blade.php">
+      <a class="nav-link navbar-icon" href="/login">
         <img src="AdminLTE\dist\img\Logout.png" alt="Logout" width="35px" height="35px">
       </a>
     </li>
