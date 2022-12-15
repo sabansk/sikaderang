@@ -37,7 +37,16 @@
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="exampleInputFile">
-                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                <video id="camera-capture" autoplay></video>
+                <script>
+                  var videoElement = document.getElementById('camera-capture');
+                  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true}).then(function(stream) {
+                      videoElement.srcObject = stream;
+                    });
+                  }
+                  </script>
+                <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
               </div>
               <div class="input-group-append">
                 <span class="input-group-text">Upload</span>
