@@ -29,6 +29,12 @@
                   <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
+                  <script>
+                    var now = new Date();
+
+                    // convert date and time to string
+                    var dateString = now.toString('dd/MM/yyyy HH:mm:ss');
+                    </script>
               </div>
           </div>
           <!-- Input Image -->

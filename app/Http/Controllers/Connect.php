@@ -5,6 +5,7 @@ $password = "";
 $database = "sisfopkl";
 $jenis_absen = $_POST['jenis_absen'];
 $tanggal_input = $_POST['tanggal_input'];
+$foto_absen = $_POST['foto_absen'];
 $geoloc = $_POST['geoloc'];
 
 // Connect to the database
@@ -14,9 +15,9 @@ $conn = mysqli_connect($host, $username, $password, $database);
 if($conn->connect_error) {
     die('Koneksi gagal : '.$conn->connect_error);
 } else {
-    $stmt = $conn->prepare("insert into rekap_absen(id, jenis_absen, tanggal_input, geoloc) 
-        values(1, ?, ?, ?)");
-    $stmt->bind_param("sss", $jenis_absen, $tanggal_input, $geoloc);
+    $stmt = $conn->prepare("insert into rekap_absen(id, jenis_absen, tanggal_input, foto_absen, geoloc) 
+        values(1, ?, ?, ?, ?)");
+    $stmt->bind_param("issss", $id, $jenis_absen, $tanggal_input, $foto_absen, $geoloc);
     $stmt->execute();
     echo "input data sukses";
     $stmt->close();
