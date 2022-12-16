@@ -23,18 +23,27 @@
           </div>
           <!-- Date and time -->
           <div class="form-group">
+            <script>
+              function insertDateTime() {
+                var today = new Date();
+                var dd = String(today.getDate()).padstart(2,'0');
+                var mm = String(today.getMonth() + 1).padstart(2, '0');
+                var yyyy = today.getFullYear();
+                var hh = String(today.getHours().padstart(2, '0'));
+                var mm = String(today.getMinutes().padstart(2, '0'));
+                var ss = String(today.getSeconds()).padstart(2, '0');
+                today = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + mm + ':' + ss;
+                document.getElementById("dateTimeInput").value = today;
+              }
+            </script>
             <label>Tanggal & Waktu saat ini:</label>
-              <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                  <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime"/>
+              <div class="input-group date" id="reservationdatetime" data-target-input="dateString">
+                <body onload="insertDateTime()">
+                  <input type="text" id="dateTimeInput" name="dateTimeInput" value="{{ Carbon\Carbon::now()->format('Y-m-d H:i:s') }}"><br>
                   <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
-                  <script>
-                    var now = new Date();
-
-                    // convert date and time to string
-                    var dateString = now.toString('dd/MM/yyyy HH:mm:ss');
-                    </script>
+                  </body>
               </div>
           </div>
           <!-- Input Image -->
@@ -62,7 +71,19 @@
           <!-- Input Location -->
           <div class="form-group">
             <label>Masukkan Lokasi saat ini:</label>
-            {{-- Disini seharusnya input lokasi, tapi pakai API Google --}}
+            <script>
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+                function successFunction(position) {
+                  var latitude = position.coords.latitude;
+                  var longitude = position.coords.longitude; 
+              }
+              var geoloc = successFunction().toString();
+            }
+            else {
+              console.log("Error!");
+            }
+            </script>   
           </div>
         </div>
         <!-- /.card-body -->
