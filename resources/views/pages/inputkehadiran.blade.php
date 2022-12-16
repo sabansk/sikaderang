@@ -48,11 +48,11 @@
           </div>
           <!-- Input Image -->
           <div class="form-group">
-            <label for="exampleInputFile">Foto saat ini:</label>
-            <div class="input-group">
+            <label>Foto saat ini:</label>
+            <!--<div class="input-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFile">
-                <video id="camera-capture" width="40" height="80" autoplay></video>
+                <input type="file" class="custom-file-input" id="exampleInputFile"> -->
+                <video id="camera-capture" width="320" height="180" autoplay></video>
                 <script>
                   var videoElement = document.getElementById('camera-capture');
                   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
