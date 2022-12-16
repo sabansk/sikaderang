@@ -39,7 +39,7 @@
             <label>Tanggal & Waktu saat ini:</label>
               <div class="input-group date" id="reservationdatetime" data-target-input="dateString">
                 <body onload="insertDateTime()">
-                  <input type="text" id="dateTimeInput" name="dateTimeInput" value="{{ Carbon\Carbon::now()->format('Y-m-d H:i:s') }}"><br>
+                  <input type="text" id="dateTimeInput" name="dateTimeInput" value="{{ Carbon\Carbon::now()->timezone('Asia/Makassar')->format('Y-m-d H:i:s') }}"><br>
                   <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
