@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class KehadiranController extends Controller
 {
-    public function index(){
+    public function input(){
         return view('pages.inputkehadiran',["title" => "Input Kehadiran"]);
     }
 }

@@ -28,9 +28,9 @@ Route::get('/SuperAdminDashboard', [SuperAdminDashboardController::class, 'show'
 
 Route::get('/kehadiran', [KehadiranController::class, 'input']);
 
-Route::get('/dashboard', [DashboardController::class,'index']);
+// Route::get('/help', [HelpController::class, 'show']);
 
-Route::get('/inputkehadiran', [KehadiranController::class,'index']);
+Route::get('/login', [LoginController::class, 'input']);
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

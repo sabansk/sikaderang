@@ -8,7 +8,7 @@ use App\Models\User;
 
 class DashboardController extends Controller
 {
-    public function index(){
+    public function show(){
 
         $title ="Dashboard";
         $title2 = "Kehadiran";
