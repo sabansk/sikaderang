@@ -7,7 +7,7 @@
     <!-- Small boxes (Stat box) -->
     <!-- /.row -->
     <!-- Main row -->
-    <div class="row">
+    <div class="row" draggable="false">
       <!-- Left col -->
       <section class="col-lg-7 connectedSortable">
         <!-- Custom tabs (Charts with tabs)-->
@@ -45,9 +45,8 @@
               Location History
             </h3>
           </div>
-          <div class="card-body">
-            <div id="world-map" style="height: 300px; width: 100%;"></div>
-          </div>
+          <iframe class="rounded-bottom" height="340" style="border:0;" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1861.3460965916022!2d119.45305947958761!3d-5.200813770529895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1671590687973!5m2!1sen!2sid" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          {{-- <iframe class="rounded-bottom" height="341" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=API_KEY&q=Space+Needle,Seattle+WA"></iframe> --}}
           <!-- /.card-body-->
         </div>
         <!-- /.card -->
