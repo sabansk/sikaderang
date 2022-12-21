@@ -42,7 +42,8 @@
               Location History
             </h3>
           </div>
-          <iframe class="rounded-bottom" height="341" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=API_KEY&q=Space+Needle,Seattle+WA"></iframe>
+          <iframe class="rounded-bottom" height="340" style="border:0;" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1861.3460965916022!2d119.45305947958761!3d-5.200813770529895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1671590687973!5m2!1sen!2sid" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          {{-- <iframe class="rounded-bottom" height="341" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=API_KEY&q=Space+Needle,Seattle+WA"></iframe> --}}
           {{-- <div id="world-map" class="card-body" style="min-height: 341px !important; padding: 0 !important">
             <div id="world-map" style="height: 300px; width: 100%;"></div>
           </div> --}}
@@ -65,8 +66,7 @@
         </h3>
       </div>
       <div class="card-body">
-        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-        {{-- <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas> --}}
+        <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
         {{-- <div class="chart">
           <div id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
         </div> --}}
