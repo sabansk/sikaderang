@@ -64,7 +64,7 @@
                 <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
               </div>
               <div class="input-group-append">
-                <button id="capture_button">Capture</button>
+                <button id="capture_button">Capture</button> <!-- it works but cannot store into db yet. -->
               </div>
               <script>
                 const captureButton = document.getElementById("capture-button");
