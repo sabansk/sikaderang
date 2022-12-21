@@ -7,7 +7,7 @@
     <!-- Small boxes (Stat box) -->
     <!-- /.row -->
     <!-- Main row -->
-    <div class="row" draggable="false">
+    <div class="row">
       <!-- Left col -->
       <section class="col-lg-7 connectedSortable">
         <!-- Custom tabs (Charts with tabs)-->
@@ -21,12 +21,10 @@
           <div class="card-body">
             <div class="tab-content p-0">
               <!-- Pie chart - Attendance -->
-              <div class="chart tab-pane active" id="sales-chart" style="position: relative; height: 300px;">
+              <div class="chart tab-pane active text-center" id="sales-chart" style="position: relative; height: 300px;">
                 <!-- ./col -->
-                <div class="col-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-width="120" data-height="120" data-fgColor="#f56954">
-                  <div class="knob-label">data-width="120"</div>
-                </div>
+                <input class="knob" data-readonly="true" value="{30}" data-width="250" data-height="250" data-fgColor="#f56954" style="align-items: center">
+                <div class="knob-label text-center"><strong>Kehadiran</strong><br>dari Total {67} Hari</div>
                 {{-- <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas> --}}
               </div>
             </div>

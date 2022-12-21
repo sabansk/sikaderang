@@ -1,4 +1,5 @@
 @extends('layouts.main')
 
-@section()
+@section('contentUser')
+<h1>Help Page</h1>
 @endsection

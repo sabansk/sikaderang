@@ -35301,6 +35301,12 @@ a.disabled.mailbox-attachment-close {
   .small-box p {
     font-size: 12px
   }
+
+  /* Additional CSS Style from Arfani */
+.row>.col-6.login-page {
+  display: none !important
+}
+/* Additional */
 }
 
 .info-box {
@@ -36917,7 +36923,7 @@ a.disabled.mailbox-attachment-close {
 
 .login-logo,
 .register-logo {
-  font-size: 2.1rem;
+  font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: .9rem;
   text-align: center
@@ -36932,7 +36938,7 @@ a.disabled.mailbox-attachment-close {
 .register-page {
   -ms-flex-align: center;
   align-items: center;
-  background-color: #e9ecef;
+  background-color: var(--soapstone);
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -36944,7 +36950,7 @@ a.disabled.mailbox-attachment-close {
 
 .login-box,
 .register-box {
-  width: 360px
+  width: 400px
 }
 
 @media (max-width:576px) {
@@ -36963,9 +36969,9 @@ a.disabled.mailbox-attachment-close {
 
 .login-card-body,
 .register-card-body {
-  background-color: #fff;
+  background-color: var(--soapstone);
   border-top: 0;
-  color: #666;
+  color: var(--dune);
   padding: 20px
 }
 
@@ -55804,4 +55810,10 @@ a.text-muted:hover {
 }
 
 /*# sourceMappingURL=adminlte.min.css.map */
-;
+
+/* Additional CSS Style from Arfani */
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}

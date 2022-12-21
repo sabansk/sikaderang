@@ -48,7 +48,7 @@
           </div>
           <!-- Input Image -->
           <div class="form-group">
-            <label>Foto saat ini:</label>
+            <label>Foto saat ini:</label><br>
             <!--<div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="exampleInputFile"> -->
@@ -76,14 +76,14 @@
                 navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
                 function successFunction(position) {
                   var latitude = position.coords.latitude;
-                  var longitude = position.coords.longitude; 
+                  var longitude = position.coords.longitude;
               }
               var geoloc = successFunction().toString();
             }
             else {
               console.log("Error!");
             }
-            </script>   
+            </script>
           </div>
         </div>
         <!-- /.card-body -->
