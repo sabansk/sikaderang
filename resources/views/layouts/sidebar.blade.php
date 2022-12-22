@@ -27,5 +27,9 @@
                 <p>Input Kehadiran</p>
               </a>
             </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
 </aside>
