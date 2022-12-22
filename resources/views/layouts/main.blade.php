@@ -211,7 +211,7 @@ click_button.addEventListener('click', function() {
     datasets: [
       // Check In
       {
-        label: 'Digital Goods',
+        label: 'Check In',
         fill: false,
         borderWidth: 2,
         lineTension: 0,
@@ -225,7 +225,7 @@ click_button.addEventListener('click', function() {
       },
       // Check Out
       {
-        label: 'Digital Goods',
+        label: 'Check Out',
         fill: false,
         borderWidth: 2,
         lineTension: 0,
@@ -235,7 +235,7 @@ click_button.addEventListener('click', function() {
         pointHoverRadius: 7,
         pointColor: '#efefef',
         pointBackgroundColor: '#efefef',
-        data: [2666, 2478, 4912, 3767, 8710, 5670, 4820, 15073, 10687, 8432]
+        data: [6666, 6778, 8912, 7767, 10810, 9670, 8820, 19073, 14687, 12432]
       }
     ]
   }

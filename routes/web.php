@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\KehadiranController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HelpController;
@@ -23,8 +24,6 @@ Route::get('/', [DashboardController::class, 'show']);
 Route::get('/dashboard', [DashboardController::class, 'show']);
 
 Route::get('/AdminDashboard', [AdminDashboardController::class, 'show']);
-
-Route::get('/SuperAdminDashboard', [SuperAdminDashboardController::class, 'show']);
 
 Route::get('/kehadiran', [KehadiranController::class, 'input']);
 

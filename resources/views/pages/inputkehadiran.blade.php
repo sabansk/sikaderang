@@ -13,8 +13,8 @@
       <!-- form start -->
       <form>
         <div class="card-body">
+          <!-- Types of Presences -->
           <div class="form-group">
-            <!-- Types of Presences -->
             <label>Jam Kedatangan/Kepulangan</label>
                   <select class="form-control select2" style="width: 100%;">
                     <option selected="selected">Jam Kedatangan</option>
@@ -37,35 +37,29 @@
               }
             </script>
             <label>Tanggal & Waktu saat ini:</label>
-              <div class="input-group date" id="reservationdatetime" data-target-input="dateString">
-                <body onload="insertDateTime()">
-                  <input type="text" id="dateTimeInput" name="dateTimeInput" value="{{ Carbon\Carbon::now()->timezone('Asia/Makassar')->format('Y-m-d H:i:s') }}"><br>
+            <div class="input-group date" id="reservationdatetime" data-target-input="dateString" style="object-fit: cover">
+              <div onload="insertDateTime()" class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                  <input type="text" id="dateTimeInput" name="dateTimeInput" value="{{ Carbon\Carbon::now()->timezone('Asia/Makassar')->format('Y-m-d H:i:s') }}" class="form-control datetimepicker-input"/>
                   <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
-                  </body>
               </div>
+            </div>
           </div>
           <!-- Input Image -->
           <div class="form-group">
             <label>Foto saat ini:</label><br>
-            <!--<div class="input-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFile"> -->
-                <video id="camera-capture" width="320" height="180" autoplay></video>
-                <script>
-                  var videoElement = document.getElementById('camera-capture');
-                  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                    navigator.mediaDevices.getUserMedia({ video: true}).then(function(stream) {
-                      videoElement.srcObject = stream;
-                    });
-                  }
-                  </script>
-                <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
-              </div>
-              <div class="input-group-append">
-                <button id="capture_button">Capture</button> <!-- it works but cannot store into db yet. -->
-              </div>
+            <div class="card">
+              <video class="input-group input-group-appendd rounded-top" id="camera-capture" width="350" height="200" style="object-fit: cover" autoplay></video>
+              <script>
+                var videoElement = document.getElementById('camera-capture');
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                  navigator.mediaDevices.getUserMedia({ video: true}).then(function(stream) {
+                    videoElement.srcObject = stream;
+                  });
+                }
+              </script>
+              <button id="capture_button" class="btn btn-secondary" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">Capture</button> <!-- it works but cannot store into db yet. -->
               <script>
                 const captureButton = document.getElementById("capture-button");
                 const canvas = document.getElementById("canvas");
@@ -75,7 +69,7 @@
                   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                   const imageDataUrl = canvas.toDataURL();
                 });
-                </script>
+              </script>
             </div>
           </div>
           <!-- Input Location -->
@@ -110,7 +104,4 @@
   <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-<script>
-
-</script>
 @endsection
