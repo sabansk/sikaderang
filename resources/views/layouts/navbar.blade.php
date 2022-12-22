@@ -15,9 +15,9 @@
             <img src="AdminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
             <div class="media-body">
               <h3 class="dropdown-item-title">
-                Nama Anak Magang
+                Nama User
               </h3>
-              <p class="text-sm">Nama Dinas Magang</p>
+              <p class="text-sm">Nama Dinas User</p>
             </div>
           </div>
           <!-- Message End -->

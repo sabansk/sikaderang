@@ -64,8 +64,18 @@
                 <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
               </div>
               <div class="input-group-append">
-                <span class="input-group-text">Capture</span>
+                <button id="capture_button">Capture</button> <!-- it works but cannot store into db yet. -->
               </div>
+              <script>
+                const captureButton = document.getElementById("capture-button");
+                const canvas = document.getElementById("canvas");
+                const ctx = canvas.getContext("2d");
+
+                captureButton.addEventListener("click", function() {
+                  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                  const imageDataUrl = canvas.toDataURL();
+                });
+                </script>
             </div>
           </div>
           <!-- Input Location -->
@@ -90,6 +100,9 @@
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+        <script>
+          // disini rencananya mauka simpankan script buat ambil opsi jam, tanggal, waktu dan koordinat gps buat disimpan ke database :)
+          </script>
       </form>
     </div>
     <!-- /.card -->
