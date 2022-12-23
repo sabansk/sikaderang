@@ -40,6 +40,7 @@
             <div class="input-group date" id="reservationdatetime" data-target-input="dateString" style="object-fit: cover">
               <div onload="insertDateTime()" class="input-group date" id="reservationdatetime" data-target-input="nearest">
                   <input type="text" id="dateTimeInput" name="dateTimeInput" value="{{ Carbon\Carbon::now()->timezone('Asia/Makassar')->format('Y-m-d H:i:s') }}" class="form-control datetimepicker-input"/>
+                  {{-- Current Datetime masih harus disetting agar waktunya terus berjalan secara realtime --}}
                   <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
@@ -50,7 +51,7 @@
           <div class="form-group">
             <label>Foto saat ini:</label><br>
             <div class="card">
-              <video class="input-group input-group-appendd rounded-top" id="camera-capture" width="350" height="200" style="object-fit: cover" autoplay></video>
+              <video class="input-group input-group-appendd rounded-top" id="camera-capture" height="250" style="object-fit: cover" autoplay></video>
               <script>
                 var videoElement = document.getElementById('camera-capture');
                 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {

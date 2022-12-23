@@ -369,16 +369,54 @@
 
           </div>
           <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
+          <div class="col-lg-6 connectedSortable">
+            <div class="card tab-content p-0">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1 bg-dark"></i>
+                  Sales
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <!-- Morris chart - Sales -->
+              <div class="chart tab-pane active" id="revenue-chart"
+                   style="position: relative; height: 300px;">
+                  <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+               </div>
+              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+              </div>
+            </div>
+            <!-- <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Sales</h3>
-                  <a href="javascript:void(0);">View Report</a>
+                  <h3 class="card-title">Karakteristik Anak Magang</h3>
+                  {{-- <a href="javascript:void(0);">View Report</a> --}}
+                  <div class="card-tools">
+                    <ul class="nav nav-pills ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+
               </div>
               <div class="card-body">
-                <div class="d-flex">
+
+                {{-- <div class="d-flex">
                   <p class="d-flex flex-column">
                     <span class="text-bold text-lg">$18,230.00</span>
                     <span>Sales Over Time</span>
@@ -404,9 +442,9 @@
                   <span>
                     <i class="fas fa-square text-gray"></i> Last year
                   </span>
-                </div>
+                </div> --}}
               </div>
-            </div>
+            </div> -->
             <!-- /.card -->
 
           </div>
