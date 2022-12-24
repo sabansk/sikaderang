@@ -3,6 +3,10 @@
 @section('contentUser')
 
 <section class="content">
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="AdminLTE/dist/img/gowa.png" alt="SikaderangLogo" height="60" width="60">
+  </div>
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
     <!-- /.row -->

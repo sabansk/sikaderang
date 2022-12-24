@@ -35272,7 +35272,7 @@ a.disabled.mailbox-attachment-close {
   text-decoration: none
 }
 
-.small-box:hover .icon>i,
+/* .small-box:hover .icon>i,
 .small-box:hover .icon>i.fa,
 .small-box:hover .icon>i.fab,
 .small-box:hover .icon>i.fad,
@@ -35282,7 +35282,8 @@ a.disabled.mailbox-attachment-close {
 .small-box:hover .icon>i.ion {
   -webkit-transform: scale(1.1);
   transform: scale(1.1)
-}
+} */
+
 
 .small-box:hover .icon>svg {
   -webkit-transform: scale(1.1);
