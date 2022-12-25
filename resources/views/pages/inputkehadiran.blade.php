@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('contentUser')
+@include('layouts/sidebarIntern')
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid col-md-6">

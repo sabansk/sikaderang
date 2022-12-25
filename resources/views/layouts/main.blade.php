@@ -37,7 +37,7 @@
   <!-- /.navbar -->
 
   <!-- Sidebar -->
-  @include('layouts/sidebar')
+  @yield('sidebar')
   <!-- /.sidebar -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -47,34 +47,37 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; Dinas Komunikasi, Informatika, Statistik, dan Persandian Kabupaten Gowa
-    </div>
-  </footer>
+  @include('layouts/footer')
 </div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
 <script src="AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Moment.min.js -->
+<script src="AdminLTE/plugins/moment/moment.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="AdminLTE\plugins\bootstrap\js\bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="AdminLTE\plugins\chart.js\Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="AdminLTE\plugins\sparklines\sparkline.js"></script>
-<!-- JQVMap -->
-<script src="AdminLTE\plugins\jqvmap\jquery.vmap.min.js"></script>
-<script src="AdminLTE\plugins\jqvmap\maps\jquery.vmap.usa.js"></script>
+<script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Chart.js -->
+<script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="AdminLTE\plugins\jquery-knob\jquery.knob.min.js"></script>
+<script src="AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- Super Admin Dashboard -->
+<script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script>
 <!-- AdminLTE App -->
 <script src="AdminLTE/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-{{-- <script src="AdminLTE/dist/js/pages/dashboard.js"></script> --}}
+<script src="AdminLTE/dist/js/pages/dashboard3.js"></script>
+
 
 
 

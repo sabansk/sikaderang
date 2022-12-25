@@ -2,6 +2,7 @@
 
 @section('contentUser')
 
+@include('layouts/sidebarIntern')
 <section class="content">
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">

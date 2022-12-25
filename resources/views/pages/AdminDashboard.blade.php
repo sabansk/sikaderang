@@ -3,8 +3,7 @@
 @section('contentUser')
 
 <!-- Main Sidebar Container -->
-@include('layouts/sidebarSuperAdmin')
-
+@include('layouts/sidebarAdmin')
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
   <img class="animation__shake" src="AdminLTE/dist/img/gowa.png" alt="SikaderangLogo" height="60" width="60">

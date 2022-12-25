@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\SuperAdminDashboardController;
 use App\Http\Controllers\KehadiranController;
 use App\Http\Controllers\LoginController;
@@ -19,11 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'show']);
+Route::get('/', [LoginController::class, 'input']);
 
 Route::get('/dashboard', [DashboardController::class, 'show']);
 
-Route::get('/SuperAdminDashboard', [SuperAdminDashboardController::class, 'show']);
+Route::get('/admin', [AdminDashboardController::class, 'show']);
+
+Route::get('/superAdmin', [SuperAdminDashboardController::class, 'show']);
 
 Route::get('/kehadiran', [KehadiranController::class, 'input']);
 
