@@ -78,7 +78,7 @@
               </li>
               <li class="nav-item">
                 <a href="/AdminDashboard"
-                    class="nav-link {{ $title === 'Dinas Pengendalian Penduduk dan Keluarga Berencana' ? 'active' : '' }}">
+                    class="nav-link {{ $title === 'Dinas Komunikasi, Informatika, Statistik dan Persandian' ? 'active' : '' }}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Dinas Komunikasi, Informatika, Statistik dan Persandian</p>
                 </a>
