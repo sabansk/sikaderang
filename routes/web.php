@@ -26,7 +26,7 @@ Route::get('/dashboard', [DashboardController::class, 'show']);
 
 Route::get('/admin', [AdminDashboardController::class, 'show']);
 
-Route::get('/superAdmin', [SuperAdminDashboardController::class, 'show']);
+Route::get('/superAdmin', [SuperAdminDashboardController::class, 'index']);
 
 Route::get('/kehadiran', [KehadiranController::class, 'input']);
 

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class SuperAdminDashboardController extends Controller
 {
-    public function show(){
+    public function index(){
         return view('pages.SuperAdminDashboard', ["title" => "Super Admin"]);
     }
 

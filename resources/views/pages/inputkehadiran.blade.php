@@ -4,7 +4,7 @@
 @include('layouts/sidebarIntern')
 <!-- Main content -->
 <section class="content">
-  <div class="container-fluid col-md-6">
+  <div class="container-fluid col-md-6" enctype="multipart/form-data">
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
@@ -23,8 +23,9 @@
                   </select>
           </div>
           <!-- Date and time -->
-          <div class="form-group">
+          <div class="form-group" id="timestamp_input">
             <script>
+              document.getElementById("timestamp_input").style.display = "none";
               function insertDateTime() {
                 var today = new Date();
                 var dd = String(today.getDate()).padstart(2,'0');
@@ -95,10 +96,10 @@
         <!-- /.card-body -->
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-        <script>
+          <script>
           // disini rencananya mauka simpankan script buat ambil opsi jam, tanggal, waktu dan koordinat gps buat disimpan ke database :)
           </script>
+        </div>
       </form>
     </div>
     <!-- /.card -->
