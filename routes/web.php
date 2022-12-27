@@ -5,7 +5,9 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\SuperAdminDashboardController;
 use App\Http\Controllers\KehadiranController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HelpController;
+use App\Http\Controllers\HelpUserController;
+use App\Http\Controllers\HelpAdminController;
+use App\Http\Controllers\HelpSuperAdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +32,11 @@ Route::get('/superAdmin', [SuperAdminDashboardController::class, 'index']);
 
 Route::get('/kehadiran', [KehadiranController::class, 'input']);
 
-Route::get('/help', [HelpController::class, 'show']);
+Route::get('/helpUser', [HelpUserController::class, 'show']);
+
+Route::get('/helpAdmin', [HelpAdminController::class, 'show']);
+
+Route::get('/helpSuperAdmin', [HelpSuperAdminController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'input']);
 
