@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="AdminLTE/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="AdminLTE/dist/css/adminlte.min.css">
+  <!-- Webcam -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -27,7 +29,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="AdminLTE/plugins/summernote/summernote-bs4.min.css">
   <!-- icons -->
-  <link rel="stylesheet" href="AdminLTE\plugins\fontawesome-free\css\all.min.css">
+  <link rel="stylesheet" href="AdminLTE/plugins/fontawesome-free/css/all.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -65,6 +67,8 @@
 <script src="AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- html2canvas -->
+<script src="AdminLTE/dist/js/html2canvas.min.js"></script>
 <!-- Chart.js -->
 <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- jQuery Knob Chart -->
