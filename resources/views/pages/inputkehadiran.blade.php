@@ -4,7 +4,7 @@
 @include('layouts/sidebarIntern')
 <!-- Main content -->
 <section class="content">
-  <div class="container-fluid col-md-6" enctype="multipart/form-data">
+  <div class="container-fluid col-sm-6" enctype="multipart/form-data">
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
@@ -70,26 +70,24 @@
           <div class="form-group">
             <label>Masukkan Foto Saat Ini</label><br>
             <div class="card">
-              <div id="my-camera" class="input-group input-group-appendd rounded-top justify-content-center"></div>
-              <input type="button" value="Take Capture" onCLick = "take_capture()" class="btn btn-secondary" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
+              <div id="my-camera" class="img-fluid bg-dark rounded-top embed-responsive" style="object-fit: cover; width: 100%" autoplay></div>
+              <input type="button" value="Ambil Gambar" onCLick = "take_capture()" class="btn btn-secondary" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
               <input type="hidden" name="image" class="image-tag">
             </div>
-            <label>Hasil Foto Anda</label><br>
-            <div class="card">
-              <div id="capture-results" class="input-group input-group-appendd rounded justify-content-center" style="object-fit: cover"></div>
-            </div>
+            <div id="capture-results" class="text-center">Hasil Foto Anda akan Tampil Disini</div>
+            {{-- <div class="card">
+            </div> --}}
             <script language="JavaScript">
-
               Webcam.set({
-                // width: width,
+                // width: videoWidth,
                 height: 250,
-                dest_height: 250,
+                // dest_width: 140.625,
+                // dest_height: 250,
                 image_format: 'jpeg',
                 jpeg_quality: 90
               });
 
               Webcam.attach("#my-camera");
-              Webcam.stream();
               // const videoElement = document.getElementById('my_camera');
               // if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
               //   navigator.mediaDevices.getUserMedia({ video: true}).then(function(stream) {
@@ -110,7 +108,7 @@
                 // });
                 Webcam.snap(function(data_uri) {
                   $(".image-tag").val(data_uri);
-                  document.getElementById('capture-results').innerHTML = '<img src="'+data_uri+'"/>';
+                  document.getElementById('capture-results').innerHTML = '<img src="'+data_uri+'" class="img-thumbnail"/>';
                 });
               }
               // console.log(`${data_uri}`);
