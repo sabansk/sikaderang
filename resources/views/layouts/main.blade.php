@@ -16,12 +16,14 @@
   <link rel="stylesheet" href="AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Webcam -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
   <!-- JQVMap -->
   <link rel="stylesheet" href="AdminLTE/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="AdminLTE/dist/css/adminlte.min.css">
-  <!-- Webcam -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -67,8 +69,8 @@
 <script src="AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- html2canvas -->
-<script src="AdminLTE/dist/js/html2canvas.min.js"></script>
+<!-- Leaflet for Map -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 <!-- Chart.js -->
 <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- jQuery Knob Chart -->
@@ -83,11 +85,43 @@
 <script src="AdminLTE/dist/js/pages/dashboard3.js"></script>
 
 
+<!-- Script for Map in Dashboard -->
+<script>
+  var map = L.map('map').setView([-5.2053438, 119.4527424], 13);
 
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
 
+  var marker = L.marker([-5.2053438, 119.4527424]).addTo(map);
+
+  var circle = L.circle([-5.2053438, 119.4527424], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 40
+  }).addTo(map);
+
+  marker.bindPopup("<b>Disini</b><br>Titik tengah dari lokasi absensi Anda").openPopup();
+  circle.bindPopup("Radius Lokasi untuk Kehadiran");
+  polygon.bindPopup("I am a polygon.");
+
+  var popup = L.popup();
+
+  function onMapClick(e) {
+      popup
+          .setLatLng(e.latlng)
+          .setContent("You clicked the map at " + e.latlng.toString())
+          .openOn(map);
+  }
+
+  map.on('click', onMapClick);
+
+</script>
 
 <!-- Script untuk mengambil foto langsung dari kamera -->
-<script>
+{{-- <script>
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
@@ -104,7 +138,7 @@ click_button.addEventListener('click', function() {
 
   // data url of the image
   console.log(image_data_url);
-});
+}); --}}
 
 </script>
 

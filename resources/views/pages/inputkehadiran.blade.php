@@ -17,7 +17,7 @@
         <div class="card-body">
           <!-- Types of Presences -->
           <div class="form-group">
-            <label>Jam Kedatangan/Kepulangan</label>
+            <label>Jam Kedatangan / Kepulangan</label>
                   <select class="form-control select2" style="width: 100%;">
                     <option id="waktu_datang" selected="selected">Jam Kedatangan</option>
                     <option id="waktu_pulang">Jam Kepulangan</option>
@@ -70,14 +70,30 @@
           <div class="form-group">
             <label>Masukkan Foto Saat Ini</label><br>
             <div class="card">
-              <div id="my-camera" class="img-fluid bg-dark rounded-top embed-responsive" style="object-fit: cover; width: 100%" autoplay></div>
-              <input type="button" value="Ambil Gambar" onCLick = "take_capture()" class="btn btn-secondary" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
+              <div id="my-camera" class="img-fluid bg-dark rounded-top embed-responsive align-center" style="object-fit: cover; width: 100%" autoplay></div>
+              <input type="button" value="Ambil Gambar" onCLick ="take_capture()" class="btn btn-secondary" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
               <input type="hidden" name="image" class="image-tag">
             </div>
             <div id="capture-results" class="text-center">Hasil Foto Anda akan Tampil Disini</div>
-            {{-- <div class="card">
-            </div> --}}
             <script language="JavaScript">
+              Webcam.set({
+                  // width: 490,
+                  height: 250,
+                  dest_height: 250,
+                  image_format: 'jpeg',
+                  jpeg_quality: 90
+              });
+
+              Webcam.attach('#my-camera');
+
+              function take_capture() {
+                  Webcam.snap( function(data_uri) {
+                      $(".image-tag").val(data_uri);
+                      document.getElementById('capture-results').innerHTML = '<img src="'+data_uri+'" class="img-thumbnail" style="width:100%; height: auto"/>';
+                  });
+              }
+            </script>
+            {{-- <script>
               Webcam.set({
                 // width: videoWidth,
                 height: 250,
@@ -88,35 +104,14 @@
               });
 
               Webcam.attach("#my-camera");
-              // const videoElement = document.getElementById('my_camera');
-              // if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-              //   navigator.mediaDevices.getUserMedia({ video: true}).then(function(stream) {
-              //     videoElement.srcObject = stream;
-              //   })
-              // }
-
-              // const captureButton = document.getElementById("capture-button");
-              // const canvas = document.getElementById("canvas");
-              // const ctx = canvas.getContext("2d");
 
               function take_capture() {
-                // html2canvas(videoElement).then((canvas) => {
-                //   var capture = document.createElement("capture");
-                //   capture.download = "attends.png";
-                //   capture.href = canvas.toDataURL("image/png");
-                //   capture.click();
-                // });
                 Webcam.snap(function(data_uri) {
                   $(".image-tag").val(data_uri);
                   document.getElementById('capture-results').innerHTML = '<img src="'+data_uri+'" class="img-thumbnail"/>';
                 });
               }
-              // console.log(`${data_uri}`);
-              // captureButton.addEventListener("click", function() {
-              //   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-              //   const imageDataUrl = canvas.toDataURL();
-              // });
-            </script>
+            </script> --}}
           </div>
         </div>
         <!-- /.card-body -->
