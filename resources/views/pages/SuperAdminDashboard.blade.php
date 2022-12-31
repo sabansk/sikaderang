@@ -111,6 +111,21 @@
       <!-- /.col-md-6 -->
     </div>
     <!-- /.row -->
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                  <h3 class="card-title text-center">Riwayat Lokasi Anak PKL</h3>
+              </div>
+          </div>
+          <div id="map" class="card-body" style="min-height: 341px"></div>
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <!-- /.row -->
   </div>
   <!-- /.container-fluid -->
 </div>

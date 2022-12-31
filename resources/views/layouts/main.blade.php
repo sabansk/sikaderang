@@ -20,6 +20,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
   <!-- Leaflet Map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+  <!-- Leaflet for Map -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
   <!-- JQVMap -->
   <link rel="stylesheet" href="AdminLTE/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
@@ -69,8 +71,6 @@
 <script src="AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Leaflet for Map -->
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 <!-- Chart.js -->
 <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- jQuery Knob Chart -->
@@ -87,38 +87,84 @@
 
 <!-- Script for Map in Dashboard -->
 <script>
-  var map = L.map('map').setView([-5.2053438, 119.4527424], 13);
+  var map = L.map('map').setView([-5.200963503628385, 119.453547417958], 18);
 
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
-  var marker = L.marker([-5.2053438, 119.4527424]).addTo(map);
+  // Membuat Pin Lokasi
+  var marker = L.marker([-5.200963503628385, 119.453547417958]).addTo(map);
 
-  var circle = L.circle([-5.2053438, 119.4527424], {
+  // Membuat Jarak Radius
+  var circle = L.circle([-5.200963503628385, 119.453547417958], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
-    radius: 40
+    radius: 35
   }).addTo(map);
 
+  // Popup untuk Marker dan Jarak Radius
   marker.bindPopup("<b>Disini</b><br>Titik tengah dari lokasi absensi Anda").openPopup();
   circle.bindPopup("Radius Lokasi untuk Kehadiran");
-  polygon.bindPopup("I am a polygon.");
+
+  // var popup = L.popup()
+  //   .setLatLng([-5.200963503628385, 119.453547417958])
+  //   .setContent("I am a standalone popup.")
+  //   .openOn(map);
 
   var popup = L.popup();
 
-  function onMapClick(e) {
-      popup
-          .setLatLng(e.latlng)
-          .setContent("You clicked the map at " + e.latlng.toString())
-          .openOn(map);
-  }
+  // Fungsi untuk klik koordinat pada sembarang titik
+  // function onMapClick(e) {
+  //     popup
+  //         .setLatLng(e.latlng)
+  //         .setContent("You clicked the map at " + e.latlng.toString())
+  //         .openOn(map);
+  // }
+  // map.on('click', onMapClick);
 
-  map.on('click', onMapClick);
-
+  // Menghilangkan fitur drag dan interaktif lain pada map
+  map.dragging.disable();
+  map.scrollWheelZoom.disable();
+  if (map.tap) map.tap.disable();
+  document.getElementById('map').style.cursor='default';
 </script>
+
+{{-- <script>
+  var peta1 = L.tileLayer(
+      'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          attribution: '',
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  });
+
+  var peta2 = L.tileLayer(
+      'http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+          attribution: '',
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  });
+
+
+  var peta3 = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+          attribution: '',
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  });
+
+  var peta4 = L.tileLayer(
+      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+          attribution: '',
+          id: 'mapbox/dark-v10',
+          maxZoom: 20,
+          tileSize: 512,
+          zoomOffset: -1,
+  });
+
+</script> --}}
 
 <!-- Script untuk mengambil foto langsung dari kamera -->
 {{-- <script>

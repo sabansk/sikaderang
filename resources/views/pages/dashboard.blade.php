@@ -45,7 +45,7 @@
           <div class="card-header">
             <h3 class="card-title">
               <i class="fas fa-map-marker-alt mr-1" style="color: var(--soapstone)"></i>
-              Location History
+              Riwayat Lokasi
             </h3>
           </div>
           <div id="map" class="card-body" style="min-height: 341px"></div>
@@ -64,7 +64,7 @@
       <div class="card-header">
         <h3 class="card-title">
           <i class="fas fa-chart-line mr-1" style="color: var(--soapstone)"></i>
-          Check In/Out History
+          Riwayat Jam Datang / Pulang
         </h3>
 
         <div class="card-tools">

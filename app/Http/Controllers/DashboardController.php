@@ -11,7 +11,7 @@ class DashboardController extends Controller
     public function show(){
 
         $title ="Dashboard";
-        $title2 = "Kehadiran";
+        $title2 = "Total Kehadiran";
 
 
 
