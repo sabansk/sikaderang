@@ -60,7 +60,7 @@
                 navigator.geolocation.getCurrentPosition((position) => {
                   const latitude = position.coords.latitude;
                   const longitude = position.coords.longitude;
-                  console.log(`Latitude: ${latitude} Longitude: ${longitude}`);
+                  const result = (`Latitude: ${latitude} Longitude: ${longitude}`).toString();
                 });
               });
             </script>
