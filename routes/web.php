@@ -39,7 +39,7 @@ Route::get('/helpAdmin', [HelpAdminController::class, 'show']);
 Route::get('/helpSuperAdmin', [HelpSuperAdminController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'input']);
-
+Route::post('/login', [LoginController::class, 'store']);
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
