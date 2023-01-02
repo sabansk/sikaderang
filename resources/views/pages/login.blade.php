@@ -30,7 +30,8 @@
             <!-- /.login-logo -->
             <div class="login-box">
                 <div class="card-body login-card-body">
-                    <form action="\dashboard" method="post">
+                    <form action="\dashboard" method="POST">
+                        @csrf
                         <!-- Username -->
                         <label for="title">Nama Pengguna</label>
                         <div class="input-group mb-3">
