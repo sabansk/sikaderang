@@ -30,10 +30,13 @@
       <img src="AdminLTE\dist\img\Help.png" alt="Help Icon" width="35px" height="35px">
     </a>
     <!-- Log Out Menu -->
-    <li class="nav-item">
-      <a class="nav-link navbar-icon" href="/login">
-        <img src="AdminLTE\dist\img\Logout.png" alt="Logout" width="35px" height="35px">
-      </a>
-    </li>
+    <form action="">
+      @csrf
+      <li class="nav-item">
+        <a class="nav-link navbar-icon" href="/login">
+          <img src="AdminLTE\dist\img\Logout.png" alt="Logout" width="35px" height="35px">
+        </a>
+      </li>
+    </form>
   </ul>
 </nav>

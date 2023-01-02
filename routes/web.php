@@ -22,9 +22,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LoginController::class, 'input']);
+// Route::get('/', [LoginController::class, 'index']);
 
-Route::get('/dashboard', [DashboardController::class, 'show']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+
+Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth');
 
 Route::get('/admin', [AdminDashboardController::class, 'show']);
 
@@ -38,8 +43,6 @@ Route::get('/helpAdmin', [HelpAdminController::class, 'show']);
 
 Route::get('/helpSuperAdmin', [HelpSuperAdminController::class, 'show']);
 
-Route::get('/login', [LoginController::class, 'input']);
-Route::post('/login', [LoginController::class, 'store']);
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
