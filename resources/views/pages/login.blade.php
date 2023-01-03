@@ -35,7 +35,7 @@
             @if(session()->has('loginError'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{ session('loginError') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="transform: scale(0.7); height: 10px !important; width: 10px !important"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="transform: scale(0.7); height: 10px !important; width: 10px !important" onclick="this.parentElement.style.display='none';"></button>
                 </div>
             @endif
 
@@ -111,6 +111,7 @@
         // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
     });
+
 </script>
 
 <!-- Bootstrap 4 -->

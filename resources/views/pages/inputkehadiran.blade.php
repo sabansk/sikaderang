@@ -5,6 +5,11 @@
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid col-sm-6" enctype="multipart/form-data">
+    @if(session()->has('success'))
+    <div class="alert alert-primary" role="alert">
+      {{ session('success') }}
+    </div>
+    @endif
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">

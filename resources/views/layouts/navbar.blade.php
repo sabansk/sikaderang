@@ -25,15 +25,24 @@
       </div>
     </li>
     <!-- Help Menu -->
-    <a class="nav-link navbar-icon" href="/help">
-      {{-- Perlu dibuatkan condition untuk target page helpUser, helpAdmin, helpSuperAdmin --}}
-      <img src="AdminLTE\dist\img\Help.png" alt="Help Icon" width="35px" height="35px">
-    </a>
+    {{-- @if (Auth()->user()->isUser()) --}}
+      <a class="nav-link navbar-icon" href="/helpUser">
+        <img src="AdminLTE\dist\img\Help.png" alt="Help Icon" width="35px" height="35px">
+      </a>
+    {{-- @elseif(Auth()->user()->isAdmin())
+      <a class="nav-link navbar-icon" href="/helpAdmin">
+        <img src="AdminLTE\dist\img\Help.png" alt="Help Icon" width="35px" height="35px">
+      </a>
+    @elseif(Auth()->user()->isSuperAdmin())
+      <a class="nav-link navbar-icon" href="/helpSuperAdmin">
+        <img src="AdminLTE\dist\img\Help.png" alt="Help Icon" width="35px" height="35px">
+      </a>
+    @endif --}}
     <!-- Log Out Menu -->
     <form action="">
       @csrf
       <li class="nav-item">
-        <a class="nav-link navbar-icon" href="/login">
+        <a class="nav-link navbar-icon" href="/login" onclick="return confirm('Are you sure?')">
           <img src="AdminLTE\dist\img\Logout.png" alt="Logout" width="35px" height="35px">
         </a>
       </li>
