@@ -104,7 +104,22 @@
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary">Submit</button>
           <script>
-          // disini rencananya mauka simpankan script buat ambil opsi jam, tanggal, waktu dan koordinat gps buat disimpan ke database :)
+            <?php
+            use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+            use Illuminate\Database\Seeder;
+            use Illuminate\Support\Facades\DB;
+            use Illuminate\Support\Str;
+            use Illuminate\Support\Facades\Hash;
+
+            class RekapAbsen 
+            {
+              public function post()
+              {
+                
+              }
+            }
+            
+            ?>
           </script>
         </div>
       </form>

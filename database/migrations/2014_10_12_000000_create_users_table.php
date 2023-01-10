@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nama_peserta');
             $table->string('asal_instansi');
             $table->string('dinas_magang');
-            $table->string('password');
+            $table->string(bcrypt('password'));
             $table->rememberToken();
             $table->timestamps();
         });
