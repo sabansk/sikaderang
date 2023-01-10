@@ -66,7 +66,10 @@
             <!-- /.d-flex -->
 
             <div class="position-relative mb-4">
-              <canvas id="attendances-chart" height="227"></canvas>
+              <canvas id="attendances-chart" style="max-height: 250px"></canvas>
+              <br>
+              <input type="month" onchange="filterChart(this)" />
+              <button onclick="reset()">Reset</button>
             </div>
           </div>
         </div>

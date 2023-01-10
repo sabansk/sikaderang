@@ -98,25 +98,6 @@
                   });
               }
             </script>
-            {{-- <script>
-              Webcam.set({
-                // width: videoWidth,
-                height: 250,
-                // dest_width: 140.625,
-                // dest_height: 250,
-                image_format: 'jpeg',
-                jpeg_quality: 90
-              });
-
-              Webcam.attach("#my-camera");
-
-              function take_capture() {
-                Webcam.snap(function(data_uri) {
-                  $(".image-tag").val(data_uri);
-                  document.getElementById('capture-results').innerHTML = '<img src="'+data_uri+'" class="img-thumbnail"/>';
-                });
-              }
-            </script> --}}
           </div>
         </div>
         <!-- /.card-body -->

@@ -1,0 +1,418 @@
+/* content-detail */
+#map{
+  height: 400px;
+  width: 100%;
+}
+main .content-detail{
+  width: calc(100% - 216px);
+  padding: 16px;
+  display: block;
+  position: absolute;
+  height: 100%;
+  left: 216px;
+  top: 68px;
+  background-color: var(--white);
+}
+main .content-detail a{
+  font-size: 12px;  
+  color: var(--grey-secondary);
+}
+main .content-detail h1{
+  font-size: var(--size-title);
+  color: var(--dark);
+  font-weight: 500;
+  margin-top: 10px;
+}
+main .content-detail  h3{
+  font-size: 16px;
+  color: var(--dark);
+  font-weight: 600;
+  margin-top: 18px;
+}
+main .content-detail .wrapper-title{
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .content-detail .wrapper-title .btn-collection button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+    /* background-color: aqua; */
+    /* display: flex;
+    justify-content: flex-end; */
+}
+main .content-detail .wrapper-title .btn-collection button.edit{
+  background-color: var(--blue-dark);
+  color: var(--white);
+  width: 68px;
+  height: 36px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+}
+main .content-detail .wrapper-title .btn-collection button img{
+  padding-right: 10px;
+  width: 24px;
+}
+main  .content-detail .detail-gardu ul.row-gardu{
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 0;
+  overflow-x: hidden;
+  width: 100%;
+  font-size: 14px;
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu{
+  width: 50%;
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul{
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  margin: 8px 0 0;
+  padding: 12px 0 0;
+  width: 100%;
+} 
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li span.merek{
+  display: block;
+} 
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li span.merek small{
+  font-size: 10px;
+} 
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status span{
+  padding: 6px 12px;
+  border-radius: 8px;
+} 
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_status{
+  background-color: var(--grey);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_statusPembebanan{
+  background-color: var(--grey);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_status.not{
+  background-color: var(--grey);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_statusPembebanan.not{
+  background-color: var(--grey);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_status.normal{
+  background-color: var(--green);
+  color: var(--white);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_status.overload{
+  background-color: var(--red);
+  color: var(--white);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_status.warning{
+  background-color: var(--orange);
+  color: var(--white);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_status.underload{
+  background-color: var(--yellow);
+  color: var(--white);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_statusPembebanan.balance{
+  background-color: var(--green);
+  color: var(--white);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.status #detail_statusPembebanan.unbalance{
+  background-color: var(--red);
+  color: var(--white);
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.name{
+  width: 180px;
+  font-weight: 600;
+}
+main .content-detail .detail-gardu ul.row-gardu li.col-gardu ul li.contain{
+  width: 256px;
+}
+
+main .content-detail .grafik-pembebanan .container-grafik {
+  margin-top: 20px;
+}
+main .content-detail .grafik-pembebanan .container-grafik ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding-left: 0; 
+  justify-content: space-between;
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-style{
+  /* width: 100%; */
+  margin: 12px 0;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  /* height: 400px; */ 
+  background-color: var(--white);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-monthly{
+  height: 100%; 
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-daily{
+  height: 400px; 
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-style span{
+  font-size: 14px;
+
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-style h1{
+  font-size: 14px;
+  font-style: italic;
+  margin: 100px 0 0;
+
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-style .loaderGrafikDaily{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2000px;
+  height: 100%;
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-style .loaderGrafikMonthly{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+main .content-detail .grafik-pembebanan .container-grafik .grafik-style #loaderGrafikDaily{
+  overflow-x: auto;
+  height: 100%;
+  padding-bottom: 12px;
+}
+/* main .content-detail .grafik-pembebanan .container-grafik .grafik-style #loaderGrafikMonthly{
+  overflow-x: auto;
+  height: 100%;
+  padding-bottom: 12px;
+} */
+main .content-detail .grafik-pembebanan .container-grafik .grafik-style canvas{
+  margin-top: 10px;
+  width: 90%;
+  height: 100%;
+}
+
+main .content-detail .information-detail .detail { 
+  margin-top: 20px;
+}
+
+main .content-detail .information-detail .detail .input-date ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+main .content-detail .information-detail .detail .input-date ul li{
+  width: 100%;
+  margin: 4px 0; 
+}
+main .content-detail .information-detail .detail .input-date ul li ul.input-wrapper input.form-control{
+  width: 220px; 
+}
+main .content-detail .information-detail .detail .input-date label{
+  color: var(--secondary);
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+main .content-detail .information-detail .detail .input-date .form-control{
+  font-size: 12px;
+  color: var(--secondary);
+  border: solid 1px var(--grey);
+  border-radius: 4px;
+}
+main .content-detail .information-detail .detail .input-date .form-control:focus{
+  outline: none;
+  box-shadow: none;
+  border: solid 3px var(--grey);
+}
+main .content-detail .information-detail .detail .input-date ul li ul.button-collection{
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/* main .content-detail .information-detail .detail .input-date ul li ul.button-collection li.export-data {
+  display: flex;
+  justify-content: flex-end;
+}
+main .content-detail .information-detail .detail .input-date ul li ul.button-collection li.export-data img{
+  padding-right: 10px;
+  width: 26px;
+}
+main .content-detail .information-detail .detail .input-date ul li ul.button-collection li.export-data button{
+  background-color: var(--secondary);
+  color: var(--white);
+  width: 114px;
+  height: 32px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+  margin-top: 8px;
+} */
+main .content-detail .information-detail .detail .input-date ul li ul.button-collection li.search button{
+  background-color: var(--yelow-secondary);
+  color: var(--blue-dark);
+  width: 86px;
+  height: 32px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+  margin-top: 8px;
+}
+main .content-detail .information-detail .detail .output-data .table-data {
+  margin-top: 8px;
+}
+main .content-detail .information-detail .detail .output-data .table-data table{
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+main .content-detail .information-detail .detail .output-data .table-data .table thead th{
+  background-color: var(--grey-secondary);
+  color: var(--white);
+  font-weight: 600;
+  vertical-align: middle;
+  text-align: center;
+}
+main .content-detail .information-detail .detail .output-data .table-data .table thead th small{
+  font-size: 8px;
+}
+/* main .content-detail .information-detail .detail .output-data .table-data .table thead th [aria-label='activate to sort column ascending']{
+  background-color: antiquewhite;
+} */
+main .content-detail .information-detail .detail .output-data .table-data .table tbody th{
+  font-weight: 500;
+}
+main .content-detail .information-detail .detail .output-data .table-data .table{
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* pagination style */
+/* main .content-detail .information-detail .navigation  nav{
+  justify-content: flex-end;
+  font-size: 20px;
+  padding: 24px 0 52px;
+  border-bottom: none;
+  background-color: var(--white-bg);
+}
+main .content-detail  .information-detail .navigation nav ul.pagination a.page-link{
+  border: 1px solid var(--grey);
+  color: var(--grey);
+}
+main .content-detail .information-detail .navigation  nav ul.pagination a.active{
+  background: var(--grey);
+  color: var(--blue-dark);
+}
+main .content-detail .information-detail .navigation  nav ul.pagination a.page-link:hover{
+  background: var(--grey);
+  color: var(--blue-dark);
+}
+#tabel-pengukuran_length{
+  font-size: 12px;
+}
+#tabel-pengukuran_filter{
+  display: none;
+}
+#tabel-pengukuran_length label{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+#tabel-pengukuran_info {
+  font-size: 12px;
+} */
+/* #tabel-pengukuran_paginate  {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+#tabel-pengukuran_paginate ul.pagination li.page-item.active .page-link{
+  border: 1px solid var(--grey);
+  background: var(--grey);
+  color: var(--blue-dark);
+} */
+
+main .content-detail .information-detail .detail .output-data nav{
+  display: contents;
+  /* justify-content: flex-end; */
+  font-size: 14px;
+  padding: 24px 0 52px;
+  border-bottom: none;
+  background-color: var(--white-bg);
+}
+main .content-detail .information-detail .detail .output-data nav .total-data {
+  margin: 24px 0;
+  text-align: right;
+  /* font-weight: 600; */
+  /* font-style: italic; */
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination {
+  margin: 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 78px;
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .rows-customize .custom-select{
+  width: 72px;
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .pagination-wrapper{
+  /* width: 76%; */
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .pagination-wrapper .info-page{
+  margin: 0 24px;
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .pagination-wrapper .pagination-btn ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .pagination-wrapper .pagination-btn ul li{
+  margin: 0 4px;
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .pagination-wrapper .pagination-btn button{
+  background-color: var(--white);
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 12px;
+  width: 36px;
+  margin-top: 0;
+  height: 36px;
+  border-radius: 4px;
+  border: none;
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .pagination-wrapper .pagination-btn button:hover{
+  border: 2px solid var(--grey-border);
+  cursor: pointer;
+  /* background-color: transparent; */
+}
+main .content-detail .information-detail .detail .output-data nav .menu-wrapper-pagination .pagination-wrapper .pagination-btn button.disable{
+  /* border: 1px solid var(--grey-border); */
+  background-color: var(--grey-border);
+  color: var(--grey-secondary);
+  cursor: not-allowed;
+}
+/* main .content-detail .information-detail .detail .output-data nav ul.pagination button.active{
+  background-color: var(--white-bg);
+  color: var(--blue-dark);
+} */
+main .content-detail .information-detail .detail .output-data nav ul.pagination button:hover{
+  background: var(--white-bg);
+  color: var(--blue-dark);
+}

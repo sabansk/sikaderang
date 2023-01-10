@@ -72,6 +72,8 @@
       </div>
       <div class="card-body">
         <canvas class="chart" id="line-chart" style="min-height: 250px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
+        <input type="month" onchange="filterChart(this)" />
+        <button onclick="reset()">Reset</button>
       </div>
     </div>
   </section>

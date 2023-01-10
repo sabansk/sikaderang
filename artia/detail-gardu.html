@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/08f53b953c.js" crossorigin="anonymous"></script>
+
+    <title>Detail Gardu</title>
+
+    <!-- Data tables CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+    
+    <!-- Jquery DatePicker -->
+    <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    
+    <script src="../src/template/header.js" type="module"></script>
+    <script src="../src/template/aside.js" type="module"></script>
+    <script src="../src/template/info-update.js" type="module"></script>
+    <link rel="stylesheet" href="../assets/css/loader.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link rel="stylesheet" href="../assets/css/loader.css">
+    <link rel="stylesheet" href="../assets/css/loader-content.css">
+    <link rel="stylesheet" href="../assets/css/yearpicker.css">
+    
+  
+    <link rel="stylesheet" href="../assets/css/detail-gardu.css">
+
+  </head>
+  <body>
+
+    <div id="message"></div>
+
+    <header-web></header-web>
+
+    <main>
+      <aside>
+        <ul class="logo">
+          <li class="logo-nav">
+            <img src="../assets/images/logo_pln.png" alt="">
+          </li>
+        </ul>
+        
+        <div id="menuAside">
+
+        </div>
+        <!-- <div class="logo-nav"></div> -->
+      </aside>
+
+      <div class="loader-content" id="loaderContent">
+        <div class="message">
+          <img src="./../assets/images/loader-page.svg" alt="">
+          <h1>Loading . . . </h1>
+
+        </div>
+      </div>
+      <div id="content-detail" class="content-detail">
+        <a id="kembali" href="#">< Kembali</a>
+        
+        <div id="update-gardu-date">
+          <div class="wrapper-title">
+            <h1 id="no_gardu_detail"></h1>
+            <div class="btn-collection">
+              <a href="/pages/edit-gardu.html">
+                <button class="edit">
+                  <img src="/assets/images/edit.svg" alt="">
+                  Edit 
+                </button>
+              </a>
+            </div>
+
+          </div>
+          <info-update></info-update>
+
+        </div>
+
+        <div class="detail-gardu section-style">
+          <ul class="row-gardu">
+            <li class="col-gardu">
+              <ul class="line">
+                <li class="name">Nama Gardu</li>
+                <li id="detail_nama" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Kode Unit</li>
+                <li id="detail_kodeUnit" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Idpel</li>
+                <li id="detail_idpel" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Tipe Gardu</li>
+                <li id="detail_tipeGardu" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Meter</li>
+                <li id="detail_no_meter" class="contain ">-</li>
+              </ul>
+              <ul>
+                <li class="name">Modem</li>
+                <li id="detail_no_modem" class="contain ">-</li>
+              </ul>
+              <ul>
+                <li class="name">Simcard</li>
+                <li id="detail_no_simcard" class="contain ">-</li>
+              </ul>
+              <ul>
+                <li class="name">Latitude</li>
+                <li id="detail_latitude" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Longitude</li>
+                <li id="detail_longitude" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Keterangan</li>
+                <li id="detail_keterangan" class="contain ">-</li>
+              </ul>
+              <ul class="">
+                <li class="name">Alamat</li>
+                <li id="detail_alamat" class="contain ">-</li>
+              </ul>
+            </li>
+            
+            <li class="col-gardu">
+              <ul>
+                <li class="name">Status Gardu</li>
+                <li class="contain status" >
+                  <div id="status"></div>
+                </li>
+              </ul>
+              <ul>
+                <li class="name">Pembebanan Gardu</li>
+                <li class="contain status" >
+                  <div id="beban"></div>
+                </li>
+              </ul>
+              <ul>
+                <li class="name">Kapasitas</li>
+                <li id="detail_kapasitas" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Faktor Kali</li>
+                <li id="detail_faktorKali" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Ketidakseimbangan</li>
+                <li id="detail_ketidakseimbangan" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Presentase Beban</li>
+                <li id="detail_beban" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Presentase R</li>
+                <li id="detail_r" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Presentase S</li>
+                <li id="detail_s" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Presentase T</li>
+                <li id="detail_t" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Tanggal Penginputan</li>
+                <li id="createdAt" class="contain">-</li>
+              </ul>
+              <ul>
+                <li class="name">Tanggal Edit</li>
+                <li id="editedAt" class="contain">-</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grafik-pembebanan section-style">
+          <div class="container-grafik">
+            <h3>Grafik Pembebanan Puncak Trafo</h3>
+            <!-- <div class="grafik-harian grafik-style">
+              <span>Pembebanan Harian</span>
+              <div id="loaderGrafikDaily">
+                <div class="loaderGrafikDaily">
+                  <canvas id="tren-daily" width="1000" height="154">Your browser does not support the canvas element.</canvas>
+                </div>
+              </div>
+            </div> -->
+            <div class="grafik-monthly grafik-style">
+              <span>Pembebanan Bulanan</span>
+              <div class="input-date ">
+                <label for="filterYear">Pilih Tahun</label>
+                <input id="filterYear" type="text" class="yearpicker form-control" value="" />
+              </div>
+              <div id="loaderGrafikMonthly">
+                <div class="loaderGrafikMonthly">
+                  <canvas id="tren-monthly" width="400" height="120">Your browser does not support the canvas element.</canvas>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grafik-harian grafik-style">
+              <span>Pembebanan Harian (A)</span>
+              <div id="loaderGrafikDaily">
+                <div class="loaderGrafikDaily">
+                  <canvas id="tren-arus-rst" width="1000" height="204">Your browser does not support the canvas element.</canvas>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="grafik-bulanan grafik-style">
+              <span>Pembebanan Bulanan</span>
+              <div>
+                <canvas id="tren-monthly"width="400" height="120">Your browser does not support the canvas element.</canvas>
+              </div>
+            </div>              -->
+          </div>
+        </div>
+
+        <div class="information-detail section-style">
+          <h3>Pengukuran Gardu</h3>
+          <div class="detail">
+            <div class="input-date ">
+              <ul>
+                <li>
+                  <ul class=" input-wrapper">
+                    <li class="first-input">
+                      <label for="firstDate">First Date</label>
+                      <input type="date" class="form-control" id="firstDate" data-date-format="DD/MM/YYYY">
+                    </li>
+                    <li>
+                      <label for="secondDate">End Date</label>
+                      <input type="date" class="form-control" id="secondDate">
+                    </li>
+
+                  </ul>
+                </li>
+                <li>
+                  <ul class=" button-wrapper">
+                    <li>
+                      <ul class="button-collection">
+                        <li class="search">
+                          <button id="searchDate" class="search">Cari</button>
+                        </li>
+                        <!-- <li class="export-data">
+                          <button class="export">
+                            <img src="../assets/images/excel.svg" alt="">
+                            Export</button>
+                        </li> -->
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="output-data ">
+              <div class="table-data" style="overflow-x: auto;">
+                <table class="table table-bordered bg-white table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width:5%">No.</th>
+                      <th scope="col" style="width:8%">Tanggal Penarikan <small>(YYYY-MM-DD)</small> </th>
+                      <th scope="col" style="width:8%">Waktu Penarikan</th>
+                      <th scope="col" style="width:5%">Arus r</th>
+                      <th scope="col" style="width:5%">Arus s</th>
+                      <th scope="col" style="width:5%">Arus t</th>
+                      <th scope="col" style="width:5%">Arus rata-rata</th>
+                      <th scope="col" style="width:5%">Vr</th>
+                      <th scope="col" style="width:5%">Vs</th>
+                      <th scope="col" style="width:5%">Vt</th>
+                      <th scope="col" style="width:5%">Δr</th>
+                      <th scope="col" style="width:5%">Δs</th>
+                      <th scope="col" style="width:5%">Δt</th>
+                      <th scope="col" style="width:10%">Persen Ketidakseimbangan</th>
+                      <th scope="col" style="width:10%">Power Faktor</th>
+                      <th scope="col" style="width:10%">Arus Netral</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_pengukuran">
+
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- pagination -->
+              <nav aria-label="Page navigation example">
+                <!-- <div class="total-data">
+                  <p>Result <span id="totalData">1000</span></p>
+                </div> -->
+                <div class="menu-wrapper-pagination">
+                  <div class="rows-customize">
+                    <small class="form-text text-muted">Baris per-halaman</small>
+                    <select class="custom-select mr-sm-2 form-control" id="rowsCustom" name="rowsCustom">
+                      <option value="10" selected>10</option>
+                      <option value="25">25</option>
+                      <option value="50" >50</option>
+                      <option value="100">100</option>
+                      <option value="200">200</option>
+                      <option value="0">All</option>
+                    </select>
+                  </div>
+                  <div class="pagination-wrapper " id="paginationGardu">
+                    
+                    <div class="info-page ">
+                      <p><span id="curentPage">0</span> dari <span id="lastPage">0</span> halaman (<span id="totalData">0</span> data)</p>
+                    </div>
+
+                    <div class="pagination-btn ">
+                      <ul class="">
+                        <li>
+                          <button id="btnStart" class=""> <i class="fa-solid fa-angles-left"></i> </button>
+                        </li> 
+                        <li >
+                          <button id="btnPrev"> <i class="fa-solid fa-angle-left"></i> </button>
+                        </li>
+                        <li >
+                          <button id="btnNext"> <i class="fa-solid fa-angle-right"></i> </button>
+                        </li>
+                        <li>
+                          <button id="btnEnd"> <i class="fa-solid fa-angles-right"></i> </button>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </nav>
+            </div>
+            
+          </div>
+
+        </div>
+        
+        <br><br><br>
+      </div>
+    </main>
+
+    <script type="module" src="../src/js/yearpicker.js"></script>
+    <script src="../src/js/detail-gardu.js"></script>
+    <script type="module" src="../src/js/grafik-daily.js"></script>
+    <script type="module" src="../src/js/grafik-monthly.js"></script>
+  </body>
+</html> 
