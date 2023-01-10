@@ -104,22 +104,6 @@
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary">Submit</button>
           <script>
-            <?php
-            use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-            use Illuminate\Database\Seeder;
-            use Illuminate\Support\Facades\DB;
-            use Illuminate\Support\Str;
-            use Illuminate\Support\Facades\Hash;
-
-            class RekapAbsen 
-            {
-              public function post()
-              {
-                
-              }
-            }
-            
-            ?>
           </script>
         </div>
       </form>
