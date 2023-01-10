@@ -19,11 +19,11 @@ class AbsenSeeder extends Seeder
     {
         $currentDateTime = date('Y-m-d H:i:s');
         $nama_peserta = DB::table('users')
-            ->where('nama_peserta')->get();
+            ->value('nama_peserta')->get();
         $asal_instansi = DB::table('users')
-            ->where('asal_instansi')->get();
+            ->value('asal_instansi')->get();
         $dinas_magang = DB::table('users')
-            ->where('dinas_magang')->get();
+            ->value('dinas_magang')->get();
 
 
         DB::table('posts')->insert([
