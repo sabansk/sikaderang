@@ -23,10 +23,13 @@
           <!-- Types of Presences -->
           <div class="form-group">
             <label>Jam Kedatangan / Kepulangan</label>
-                  <select class="form-control select2" style="width: 100%;">
+                  <select class="form-control select2" id = "jenis_absen"style="width: 100%;">
                     <option id="waktu_datang" selected="selected">Jam Kedatangan</option>
                     <option id="waktu_pulang">Jam Kepulangan</option>
                   </select>
+            <script>
+              // button post event
+            </script>
           </div>
 
           <!-- Date and time -->
@@ -102,8 +105,114 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer text-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" id="setor_absen">Submit</button>
           <script>
+            // button
+          $('body').on('click', '#btn-create-post', function () {
+            // open modal
+            $('modal-create').modal('show');
+          });
+
+          // action post
+          $('setor_absen').click(function(e) {
+            e.preventDefault();
+
+            // define var
+            let jenis_absen = $('#jenis_absen').val();
+            let waktu_absen = $('#dateTimeInput').val();
+            let lokasi_absen = $('getLocationButton').val();
+            let foto_absen = $('capture_results').val();
+            let token = $("meta[name='csrf-token']").attr("content");
+
+            // ajax momen
+            $.ajax([
+
+              url: '/posts',
+              type: "POST",
+              cache: false,
+              data: {
+                "jenis_absensi" : jenis_absen,
+                "jam" : waktu_absen,
+                "geoloc" : lokasi_absen
+                "foto_absensi" : foto_absen,
+                "_token" : token
+              },
+              success: function(response) {
+                $wal.fire({
+                  type: 'success'
+                  icon: 'success'
+                  title: '$(response.message)',
+                  showConfirmButton: false,
+                  timer: 90
+                });
+
+                // bismillah proses post disini
+                let post = `
+
+                  <tr id="index_$(response.data.id}">
+                      <td>${response.data.jenis_absen}</td>
+                      <td>${response.data.waktu_absen}</td>
+                      <td>${response.data.lokasi_absen}</td>
+                      <td>${response.data.foto_absen}</td>
+                `;
+
+                $('#table-posts').prepend(post);
+
+                $('#jenis_absen').val('');
+                $('#waktu_absen').val('');
+                $('#lokasi_absen').val('');
+                $('#foto_absen').val('');
+
+                $('modal-create').modal('hide');
+              }
+
+              error:function(error) {
+
+                if(error.responseJSON.jenis_absen[0]) {
+
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
+
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
+
+                }
+
+                if(error.responseJSON.waktu_absen[0]) {
+
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
+
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
+                }
+
+                if(error.responseJSON.lokasi_absen[0]) {
+
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
+
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
+                }
+
+                if(error.responseJSON.foto_absen[0]) {
+
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
+
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
+
+                }
+              }
+            ]);
+
+          });
           </script>
         </div>
       </form>
