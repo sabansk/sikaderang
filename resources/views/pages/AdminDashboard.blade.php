@@ -100,11 +100,11 @@
               <!-- Morris chart - Gender -->
               <div class="chart tab-pane active" id="tab-gender" style="position: relative; height: 300px;">
                 <!-- Chart for jenis kelamin -->
-                <canvas id="chart-gender" height="200"></canvas>
+                <canvas id="genderChart" height="200"></canvas>
               </div>
               <!-- Morris chart - Background -->
               <div class="chart tab-pane" id="tab-background" style="position: relative; height: 300px;">
-                <canvas id="chart-background" height="200"></canvas>
+                <canvas id="backgroundChart" height="200"></canvas>
               </div>
             </div>
           </div>

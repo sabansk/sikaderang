@@ -32,10 +32,10 @@
                 <div class="knob-label text-center"><strong>Kehadiran</strong><br>dari Total {67} Hari</div>
                 {{-- <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas> --}}
               </div>
-              <script>
+              {{-- <script>
                 var ctx = document.getElementById('sales-chart').getcontext('2d');
                 // script buat get database ke piechartnya, sdh coba bbrp contoh tp ttp syntax error
-              </script>
+              </script> --}}
             </div>
           </div><!-- /.card-body -->
         </div>

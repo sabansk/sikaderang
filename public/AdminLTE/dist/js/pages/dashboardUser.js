@@ -1,4 +1,5 @@
-// Script for Map in Dashboard
+/* Script for Map in Dashboard */
+
 var map = L.map('map').setView([-5.200963503628385, 119.453547417958], 18);
 
 L.tileLayer('http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}', {
@@ -109,124 +110,92 @@ $(function () {
         }
       })
     })
-
-  // Sales graph chart
-  var checkingChartCanvas = $('#line-chart').get(0).getContext('2d')
-  // $('#revenue-chart').get(0).getContext('2d');
-
-  var checkingChartData = {
-  // Edit masukkan tanggal di labels
-  labels: ['2022-01-01', '2022-02-01', '2022-06-01', '2022-10-01', '2022-12-01', '2023-01-01'],
-  datasets: [
-    // Check In
-    {
-      label: 'Check In',
-      fill: false,
-      borderWidth: 2,
-      lineTension: 0,
-      spanGaps: true,
-      borderColor: '#efefef',
-      pointRadius: 3,
-      pointHoverRadius: 7,
-      pointColor: '#28a745',
-      pointBackgroundColor: '#28a745',
-      data: [
-        2666, 2778, 4912, 3767, 6810, 5670, 4820, 15073, 10687, 8432,
-        2666, 2778, 4912, 3767, 6810, 5670, 4820, 15073, 10687, 8432,
-        2666, 2778, 4912, 3767, 6810, 5670, 4820, 15073, 10687, 8432,
-        2666
-    ]
-    },
-    // Check Out
-    {
-      label: 'Check Out',
-      fill: false,
-      borderWidth: 2,
-      lineTension: 0,
-      spanGaps: true,
-      borderColor: '#efefef',
-      pointRadius: 3,
-      pointHoverRadius: 7,
-      pointColor: '#ffc107',
-      pointBackgroundColor: '#ffc107',
-      data: [
-        3066, 3178, 5312, 4167, 7210, 6070, 5220, 19073, 14687, 12432,
-        3066, 3178, 5312, 4167, 7210, 6070, 5220, 19073, 14687, 12432,
-        3066, 3178, 5312, 4167, 7210, 6070, 5220, 19073, 14687, 12432,
-        3066      ]
-    }
-  ]
-  }
-
-  var checkingChartOptions = {
-    maintainAspectRatio: false,
-    responsive: true,
-    legend: {
-      display: false
-    },
-    scales: {
-      xAxes: [{
-        min: '2022-01-01',
-        max: '2022-12-31',
-        type: 'time',
-        time: {
-          unit: 'day'
-        },
-        ticks: {
-          fontColor: '#efefef'
-        },
-        gridLines: {
-          display: false,
-          color: '#efefef',
-          drawBorder: false
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          stepSize: 5000,       // edit masukkan skala tipe waktu
-          fontColor: '#efefef'
-        },
-        gridLines: {
-          display: true,
-          color: '#efefef',
-          drawBorder: false
-        }
-      }]
-    }
-  }
-
-  // This will get the first returned node in the jQuery collection.
-  // eslint-disable-next-line no-unused-vars
-  var checkingChart = new Chart(checkingChartCanvas, { // lgtm[js/unused-local-variable]
-    type: 'line',
-    data: checkingChartData,
-    options: checkingChartOptions
-  })
-
-  // filterChart function
-  function filterChart(date){
-    console.log(date.value);
-    const year = date.value.substring(0, 4);
-    const month = date.value.substring(5, 7);
-    console.log(month);
-
-    const lastDay = (y, m) => {
-      return new Date(y, m, 0).getDate()
-    };
-
-    lastDay(year, month);
-
-    const startDate = date.value + "-" + "01";
-    const endDate = date.value + "-" + lastDay(year, month);
-
-    checkingChart.options.scales.xAxes.min = startDate;
-    checkingChart.options.scales.xAxes.max = endDate;
-    checkingChart.update();
-  }
-
-  function reset() {
-    checkingChart.options.scales.xAxes.min = '2022-01-01';
-    checkingChart.options.scales.xAxes.max = '2022-12-31';
-    checkingChart.update();
-  }
 })
+
+// Sales graph chart
+var checkingChartCanvas = $('#line-chart').get(0).getContext('2d')
+
+const data = {
+      labels: ['2022-01-01','2022-01-02','2022-01-03','2022-01-04','2022-01-05','2022-01-06','2022-01-07','2022-01-08','2022-01-09','2022-01-10','2022-01-11','2022-01-12','2022-01-13','2022-01-14','2022-01-15','2022-01-16','2022-01-17','2022-01-18','2022-01-19','2022-01-20','2022-01-21','2022-01-22','2022-01-23','2022-01-24','2022-01-25','2022-01-26','2022-01-27','2022-01-28','2022-01-29','2022-01-30','2022-01-31','2022-02-05','2022-05-12','2022-10-10','2023-01-12','2023-01-20'],
+      datasets: [
+        {
+          label: 'Check In',
+          fill: false,
+          borderWidth: 2,
+          lineTension: 0,
+          spanGaps: true,
+          borderColor: '#efefef',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#efefef',
+          pointBackgroundColor: '#efefef',
+          data: [18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 7, 12],
+        },
+        {
+          label: 'Check Out',
+          fill: false,
+          borderWidth: 2,
+          lineTension: 0,
+          spanGaps: true,
+          borderColor: '#efefef',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#efefef',
+          pointBackgroundColor: '#efefef',
+          data: [30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36,],
+        }
+      ]
+    };
+    // config
+    const config = {
+      type: 'line',
+      data,
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          x: {
+            min: '2022-01-01',
+            max: '2022-12-31',
+            type: 'time',
+            time: {
+              unit: 'day'
+            }
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+    // render init block
+    const checkingChart = new Chart(
+      checkingChartCanvas,
+      config
+    );
+
+    function filterChart(date) {
+      console.log(date.value);
+      const year = date.value.substring(0, 4);
+      const month = date.value.substring(5, 7);
+      console.log(month);
+      const lastDay = (y, m) => {
+        return new Date(y, m, 0).getDate()
+      };
+      lastDay(year, month);
+      const startDate = `${date.value}-01`;
+      const endDate = `${date.value}-${lastDay(year, month)}`;
+      checkingChart.options.scales.x.min = startDate;
+      checkingChart.options.scales.x.max = endDate;
+      checkingChart.update();
+    }
+
+    function reset() {
+      checkingChart.options.scales.x.min = '2022-01-01';
+      checkingChart.options.scales.x.max = '2022-12-31';
+      checkingChart.update();
+      console.log("Tombol reset berfungsi");
+    }

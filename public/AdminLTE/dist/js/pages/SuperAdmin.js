@@ -1,5 +1,5 @@
-const chartCanvasGender = document.getElementById('chart-gender').getContext('2d');
-const chartCanvasBackground = document.getElementById('chart-background').getContext('2d');
+const chartCanvasGender = document.getElementById('genderChart').getContext('2d');
+const chartCanvasBackground = document.getElementById('backgroundChart').getContext('2d');
 
 const canvasGender = document.getElementById('chart-gender');
 const canvasBackground = document.getElementById('chart-background');
@@ -137,7 +137,9 @@ $(document).ready(function() {
 
   })
 
-  var $attendancesChart = $('#attendances-chart')
+})
+
+var $attendancesChart = $('#attendances-chart').get(0).getContext('2d')
   // eslint-disable-next-line no-unused-vars
   var attendancesChart = new Chart($attendancesChart, {
     type: 'line',
@@ -222,15 +224,13 @@ $(document).ready(function() {
     const startDate = date.value + "-" + "01";
     const endDate = date.value + "-" + lastDay(year, month);
 
-    attendancesChart.options.scales.xAxes.min = startDate;
-    attendancesChart.options.scales.xAxes.max = endDate;
-    attendancesChart.update();
+    $attendancesChart.options.scales.xAxes.min = startDate;
+    $attendancesChart.options.scales.xAxes.max = endDate;
+    $attendancesChart.update();
   }
 
   function reset() {
-    attendancesChart.options.scales.xAxes.min = '2022-01-01';
-    attendancesChart.options.scales.xAxes.max = '2022-12-31';
-    attendancesChart.update();
+    $attendancesChart.options.scales.xAxes.min = '2022-01-01';
+    $attendancesChart.options.scales.xAxes.max = '2022-12-31';
+    $attendancesChart.update();
   }
-
-})

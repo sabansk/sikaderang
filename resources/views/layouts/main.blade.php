@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="AdminLTE\dist\img\gowa.png">
   <title>Sikaderang | {{ $title }}</title>
@@ -72,19 +73,27 @@
 <!-- Bootstrap 4 -->
 <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Chart.js -->
-<script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{{-- <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script> --}}
 <!-- Date fns from Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+@pushIf($dashboard = view('pages.dashboard'), 'scripts')
 <!-- Dashboard User -->
-<script src="AdminLTE/dist/js/pages/DashboardUser.js"></script>
-<!-- Super Admin Dashboard -->
+<script src="AdminLTE/dist/js/pages/dashboardUser.js"></script>
+@endPushIf
+@pushOnce(view('pages.AdminDashboard') || view('pages.SuperAdminDashboard'),'scripts')
+<!-- Admin & Super Admin Dashboard -->
 <script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script>
+@endPushOnce
 <!-- AdminLTE App -->
 <script src="AdminLTE/dist/js/adminlte.js"></script>
+
+</body>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{-- <script src="AdminLTE/dist/js/pages/dashboard3.js"></script> --}}
 
@@ -124,24 +133,23 @@
 
 <!-- Script untuk mengambil foto langsung dari kamera -->
 {{-- <script>
-let camera_button = document.querySelector("#start-camera");
-let video = document.querySelector("#video");
-let click_button = document.querySelector("#click-photo");
-let canvas = document.querySelector("#canvas");
+    let camera_button = document.querySelector("#start-camera");
+    let video = document.querySelector("#video");
+    let click_button = document.querySelector("#click-photo");
+    let canvas = document.querySelector("#canvas");
 
-camera_button.addEventListener('click', async function() {
-  let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-  video.srcObject = stream;
-});
+    camera_button.addEventListener('click', async function() {
+      let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      video.srcObject = stream;
+    });
 
-click_button.addEventListener('click', function() {
-  canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-  let image_data_url = canvas.toDataURL('image/jpeg');
+    click_button.addEventListener('click', function() {
+      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+      let image_data_url = canvas.toDataURL('image/jpeg');
 
-  // data url of the image
-  console.log(image_data_url);
-});
+      // data url of the image
+      console.log(image_data_url);
+    });
 
 </script> --}}
-</body>
 </html>
