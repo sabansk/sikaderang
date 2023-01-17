@@ -4,6 +4,9 @@
 
 <!-- Main Sidebar Container -->
 @include('layouts/sidebarSuperAdmin')
+<script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
+<!-- Admin & Super Admin Dashboard --> <!-- Jika diaktifkan, maka akan mengganggu filterChart() -->
+<script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script>
 
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">

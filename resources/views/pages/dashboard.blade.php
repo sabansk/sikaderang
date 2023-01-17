@@ -3,6 +3,7 @@
 @section('contentUser')
 
 @include('layouts/sidebarIntern')
+
 <section class="content">
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
@@ -28,8 +29,8 @@
               <!-- Pie chart - Attendance -->
               <div class="chart tab-pane active text-center" id="sales-chart" style="position: relative; height: 300px;">
                 <!-- ./col -->
-                <input class="knob" data-readonly="true" value="{30}" data-width="250" data-height="250" data-fgColor="#f56954" style="align-items: center">
-                <div class="knob-label text-center"><strong>Kehadiran</strong><br>dari Total {67} Hari</div>
+                <input class="knob" data-readonly="true" value="{{ 30 }}" data-width="250" data-height="250" data-fgColor="#f56954" style="align-items: center">
+                <div class="knob-label text-center"><strong>Kehadiran</strong></div>
                 {{-- <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas> --}}
               </div>
               {{-- <script>
@@ -64,7 +65,7 @@
   </div><!-- /.container-fluid -->
   <!-- solid sales graph -->
   <section class="col-lg-12 connectedSortable">
-    <div class="card bg-gradient-info">
+    <div class="card">
       <div class="card-header">
         <h3 class="card-title">
           <i class="fas fa-chart-line mr-1" style="color: var(--soapstone)"></i>
@@ -82,5 +83,4 @@
     </div>
   </section>
 </section>
-
 @endsection

@@ -63,12 +63,26 @@
           <div class="form-group">
             <label>Masukkan Lokasi Saat Ini</label>
             <button type="button" id="getLocationButton" class="btn btn-block btn-info">Simpan Lokasi</button>
+            <input type="text" id="geolocation" class="btn-block" value="" readonly=true />
+
             <script>
+              //option
+              const options = {
+                enableHighAccuracy: true,
+                timeout: 60000
+              };
+
+              function error(err) {
+                console.warn(`ERROR(${err.code}): ${err.message}`);
+              }
+
               document.getElementById('getLocationButton').addEventListener('click', () => {
-                navigator.geolocation.getCurrentPosition((position) => {
+                navigator.geolocation.getCurrentPosition((position,err,options) => {
                   const latitude = position.coords.latitude;
                   const longitude = position.coords.longitude;
                   const result = (`Latitude: ${latitude} Longitude: ${longitude}`).toString();
+                  document.getElementById("geolocation").value = result;
+
                 });
               });
             </script>
@@ -79,7 +93,7 @@
             <label>Masukkan Foto Saat Ini</label><br>
             <div class="card">
               <div id="my-camera" class="img-fluid bg-dark rounded-top embed-responsive align-center" style="object-fit: cover; width: 100%" autoplay></div>
-              <input type="button" value="Ambil Gambar" onCLick ="take_capture()" class="btn btn-secondary" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
+              <input type="button" value="Ambil Gambar" onCLick ="take_capture()" class="btn btn-info" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
               <input type="hidden" name="image" class="image-tag">
             </div>
             <div id="capture-results" class="text-center">Hasil Foto Anda akan Tampil Disini</div>
@@ -126,7 +140,6 @@
 
             // ajax momen
             $.ajax([
-
               url: '/posts',
               type: "POST",
               cache: false,

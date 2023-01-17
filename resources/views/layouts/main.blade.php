@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="icon" href="AdminLTE\dist\img\gowa.png">
   <title>Sikaderang | {{ $title }}</title>
 
@@ -75,20 +74,15 @@
 <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Chart.js -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{{-- <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script> --}}
 <!-- Date fns from Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-@pushIf($dashboard = view('pages.dashboard'), 'scripts')
 <!-- Dashboard User -->
 <script src="AdminLTE/dist/js/pages/dashboardUser.js"></script>
-@endPushIf
-@pushOnce(view('pages.AdminDashboard') || view('pages.SuperAdminDashboard'),'scripts')
-<!-- Admin & Super Admin Dashboard -->
-<script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script>
+@pushOnce('scripts')
 @endPushOnce
 <!-- AdminLTE App -->
 <script src="AdminLTE/dist/js/adminlte.js"></script>

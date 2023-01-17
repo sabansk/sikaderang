@@ -1,5 +1,4 @@
 /* Script for Map in Dashboard */
-
 var map = L.map('map').setView([-5.200963503628385, 119.453547417958], 18);
 
 L.tileLayer('http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}', {
@@ -44,7 +43,7 @@ map.scrollWheelZoom.disable();
 if (map.tap) map.tap.disable();
 document.getElementById('map').style.cursor='default';
 
-$(function () {
+$(document).ready(function () {
   'use strict'
   /* Menampilkan Chart */
   $(function () {
@@ -124,12 +123,12 @@ const data = {
           borderWidth: 2,
           lineTension: 0,
           spanGaps: true,
-          borderColor: '#efefef',
+          borderColor: '#000',
           pointRadius: 3,
           pointHoverRadius: 7,
-          pointColor: '#efefef',
-          pointBackgroundColor: '#efefef',
-          data: [18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 7, 12],
+          pointColor: '#000',
+          pointBackgroundColor: '#000',
+          data: ['07.30', '08.00', '07.45', '08.30', '08.40', '09.00']  // Data Jam Masuk
         },
         {
           label: 'Check Out',
@@ -142,7 +141,7 @@ const data = {
           pointHoverRadius: 7,
           pointColor: '#efefef',
           pointBackgroundColor: '#efefef',
-          data: [30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36, 30, 20, 12, 18, 24, 6, 18, 36,],
+          data: ['16.30', '18.00', '17.45', '17.30', '16.40', '16.00']  //Data Jam pulang
         }
       ]
     };
@@ -166,7 +165,11 @@ const data = {
             }
           },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            scaleLabel: {
+              labelString: 'Waktu',
+              display: true
+            }
           }
         }
       }
@@ -194,8 +197,8 @@ const data = {
     }
 
     function reset() {
-      checkingChart.options.scales.x.min = '2022-01-01';
-      checkingChart.options.scales.x.max = '2022-12-31';
+      checkingChart.options.scales.x.min = '2023-01-01';
+      checkingChart.options.scales.x.max = '2023-12-31';
       checkingChart.update();
       console.log("Tombol reset berfungsi");
     }

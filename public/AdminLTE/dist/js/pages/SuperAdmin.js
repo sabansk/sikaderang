@@ -1,5 +1,5 @@
-const chartCanvasGender = document.getElementById('genderChart').getContext('2d');
-const chartCanvasBackground = document.getElementById('backgroundChart').getContext('2d');
+const chartCanvasGender = document.getElementById('chart-gender').getContext('2d');
+const chartCanvasBackground = document.getElementById('chart-background').getContext('2d');
 
 const canvasGender = document.getElementById('chart-gender');
 const canvasBackground = document.getElementById('chart-background');
@@ -89,14 +89,14 @@ $(document).ready(function() {
     },
     options: {
       maintainAspectRatio: false,
-      // tooltips: {
-      //   mode: mode,
-      //   intersect: intersect
-      // },
-      // hover: {
-      //   mode: mode,
-      //   intersect: intersect
-      // },
+      tooltips: {
+        mode: mode,
+        intersect: intersect
+      },
+      hover: {
+        mode: mode,
+        intersect: intersect
+      },
       legend: {
         display: false
       },
