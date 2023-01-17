@@ -6,9 +6,9 @@
 
 <section class="content">
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  {{-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="AdminLTE/dist/img/gowa.png" alt="SikaderangLogo" height="60" width="60">
-  </div>
+  </div> --}}
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
     <!-- /.row -->
@@ -30,7 +30,7 @@
               <div class="chart tab-pane active text-center" id="sales-chart" style="position: relative; height: 300px;">
                 <!-- ./col -->
                 <input class="knob" data-readonly="true" value="{{ 30 }}" data-width="250" data-height="250" data-fgColor="#f56954" style="align-items: center">
-                <div class="knob-label text-center"><strong>Kehadiran</strong></div>
+                <div class="knob-label text-center"><strong>Hari</strong></div>
                 {{-- <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas> --}}
               </div>
               {{-- <script>

@@ -1,17 +1,17 @@
-@extends('layouts.main')
+@extends('layouts.superadmin_main')
 
 @section('contentUser')
 
 <!-- Main Sidebar Container -->
 @include('layouts/sidebarSuperAdmin')
-<script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
+{{-- <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- Admin & Super Admin Dashboard --> <!-- Jika diaktifkan, maka akan mengganggu filterChart() -->
-<script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script>
+<script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script> --}}
 
 <!-- Preloader -->
-<div class="preloader flex-column justify-content-center align-items-center">
+{{-- <div class="preloader flex-column justify-content-center align-items-center">
   <img class="animation__shake" src="AdminLTE/dist/img/gowa.png" alt="SikaderangLogo" height="60" width="60">
-</div>
+</div> --}}
 <!-- Main content -->
 <div class="content">
   <div class="container-fluid">

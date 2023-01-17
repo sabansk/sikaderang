@@ -4,14 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
     public function index(){
-        return view('pages.login', ["title" => "Log In"]);
+
+
+        return view('pages.login', [
+            "title" => "Log In"
+
+        ]);
     }
 
     public function authenticate(Request $request){
+
+
+
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required',

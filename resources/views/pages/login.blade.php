@@ -40,8 +40,8 @@
             @endif
 
             <div class="login-box login-logo">
-                <a class="prevent-select"><strong>Sistem Informasi Kehadiran<br>Peserta Praktek Kerja
-                        Lapangan</strong></a><br>
+                <a class="prevent-select"><h4 style="font-weight:600">Sistem Informasi Kehadiran<br>Peserta Praktek Kerja
+                        Lapangan</h4></a><br>
                 <img src="AdminLTE\dist\img\gowa.png" alt="Logo Gowa" style="height:100px">
             </div>
             <!-- /.login-logo -->

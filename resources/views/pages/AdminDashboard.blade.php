@@ -5,9 +5,9 @@
 <!-- Main Sidebar Container -->
 @include('layouts/sidebarAdmin')
 <!-- Preloader -->
-<div class="preloader flex-column justify-content-center align-items-center">
+{{-- <div class="preloader flex-column justify-content-center align-items-center">
   <img class="animation__shake" src="AdminLTE/dist/img/gowa.png" alt="SikaderangLogo" height="60" width="60">
-</div>
+</div> --}}
 <!-- Main content -->
 <div class="content">
   <div class="container-fluid">
