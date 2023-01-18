@@ -14,10 +14,10 @@ class PostModel extends Model
         'nama_peserta',
         'asal_instansi',
         'dinas_magang',
-        'jenis_absensi', 
-        'jam',  
-        //'foto_absensi',
-       // 'geoloc',
+        'jenis_absensi',
+        'jam',
+        'foto_absensi',
+       'geoloc',
     ];
     protected $table = 'posts';
 

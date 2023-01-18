@@ -55814,5 +55814,5 @@ a.text-muted:hover {
 .prevent-select {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  user-select: none   !important; /* Standard syntax */
 }

@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="AdminLTE/plugins/fontawesome-free/css/all.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+  
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -94,60 +95,4 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{-- <script src="AdminLTE/dist/js/pages/dashboard3.js"></script> --}}
-
-{{-- <script>
-  var peta1 = L.tileLayer(
-      'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-          attribution: '',
-          maxZoom: 20,
-          subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-  });
-
-  var peta2 = L.tileLayer(
-      'http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-          attribution: '',
-          maxZoom: 20,
-          subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-  });
-
-
-  var peta3 = L.tileLayer(
-      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-          attribution: '',
-          maxZoom: 20,
-          subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-  });
-
-  var peta4 = L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-          attribution: '',
-          id: 'mapbox/dark-v10',
-          maxZoom: 20,
-          tileSize: 512,
-          zoomOffset: -1,
-  });
-
-</script> --}}
-
-<!-- Script untuk mengambil foto langsung dari kamera -->
-{{-- <script>
-    let camera_button = document.querySelector("#start-camera");
-    let video = document.querySelector("#video");
-    let click_button = document.querySelector("#click-photo");
-    let canvas = document.querySelector("#canvas");
-
-    camera_button.addEventListener('click', async function() {
-      let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-      video.srcObject = stream;
-    });
-
-    click_button.addEventListener('click', function() {
-      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-      let image_data_url = canvas.toDataURL('image/jpeg');
-
-      // data url of the image
-      console.log(image_data_url);
-    });
-
-</script> --}}
 </html>

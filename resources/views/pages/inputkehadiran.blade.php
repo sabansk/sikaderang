@@ -1,20 +1,18 @@
 @extends('layouts.main')
 
 @section('contentUser')
-@include('layouts/sidebarIntern')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+@include('layouts/sidebarIntern')
 <!-- Main content -->
 <section class="content">
 
   <div class="container-fluid col-sm-6" enctype="multipart/form-data">
-    @if(session()->has('success'))
+    {{-- @if(session()->has('success'))
     <div class="alert alert-primary" role="alert">
       {{ session('success') }}
     </div>
-    @endif
+    @endif --}}
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
@@ -23,14 +21,13 @@
       <!-- /.card-header -->
       <!-- form start -->
       <form action="/submit" method="POST">
-      @csrf
+        @csrf
         <div class="card-body">
           <!-- Types of Presences -->
           <div class="form-group">
             <label>Jam Kedatangan / Kepulangan</label>
                   <select class="form-control select2" id = "jenis_absen"style="width: 100%;">
-                    <option selected>Silahkan pilih ...</option>
-                    <option value="waktu_datang">Jam Kedatangan</option>
+                    <option value="waktu_datang" selected>Jam Kedatangan</option>
                     <option value="waktu_pulang">Jam Kepulangan</option>
                   </select>
             <script>
@@ -69,7 +66,7 @@
           <div class="form-group">
             <label>Masukkan Lokasi Saat Ini</label>
             <button type="button" id="getLocationButton" class="btn btn-block btn-info">Simpan Lokasi</button>
-            <input type="text" id="geolocation" class="btn-block" value="" readonly=true />
+            <input type="text" id="geolocation" class="btn btn-block" value="" readonly=true />
 
             <script>
               //option
@@ -86,13 +83,9 @@
                 navigator.geolocation.getCurrentPosition((position,err,options) => {
                   const latitude = position.coords.latitude;
                   const longitude = position.coords.longitude;
-<<<<<<< HEAD
-                  const result = (`Latitude: ${latitude} Longitude: ${longitude}`);
-=======
                   const result = (`Latitude: ${latitude} Longitude: ${longitude}`).toString();
                   document.getElementById("geolocation").value = result;
 
->>>>>>> f2d0868d16663d87dca833e2b31d17426c9f0e71
                 });
               });
             </script>
@@ -131,129 +124,111 @@
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary" id="setor_absen">Submit</button>
           <script>
-<<<<<<< HEAD
-            // @section('script')
-            <script type="text/javascript">
-            
-             $('body').on('click', '#btn-create-post', function () {
-=======
             // button
-          $('body').on('click', '#btn-create-post', function () {
->>>>>>> f2d0868d16663d87dca833e2b31d17426c9f0e71
-            // open modal
-            $('modal-create').modal('show');
-          });
+            $('body').on('click', '#btn-create-post', function () {
+              // open modal
+              $('modal-create').modal('show');
+            });
 
-         
-          $('#setor_absen').click(function(e) {
-            e.preventDefault();
 
-            // define var
-            let jenis_absen = $('#jenis_absen').val();
-            let waktu_absen = $('#dateTimeInput').val();
-            let lokasi_absen = $('getLocationButton').val();
-            let foto_absen = $('capture_results').val();
-            let token = "{{ csrf_token() }}";
+            $('#setor_absen').click(function(e) {
+              e.preventDefault();
 
-            // ajax momen
-            $.ajax([
-<<<<<<< HEAD
-              
-              url : '/submit', // sesuai di route
-              type : "POST",
-              cache : false,
-              data : {
-=======
-              url: '/posts',
-              type: "POST",
-              cache: false,
-              data: {
->>>>>>> f2d0868d16663d87dca833e2b31d17426c9f0e71
-                "jenis_absensi" : jenis_absen,
-                "jam" : waktu_absen,
-                "geoloc" : lokasi_absen
-                "foto_absensi" : foto_absen,
-                "_token" : token
-              },
-              success: function(response) {
-                $wal.fire({
-                  type: 'success'
-                  icon: 'success'
-                  title: '$(response.message)',
-                  showConfirmButton: false,
-                  timer: 90
-                });
+              // define var
+              let jenis_absen = $('#jenis_absen').val();
+              let waktu_absen = $('#dateTimeInput').val();
+              let lokasi_absen = $('getLocationButton').val();
+              let foto_absen = $('capture_results').val();
+              let token = "{{ csrf_token() }}";
 
-                // bismillah proses post disini
-                let post = `
+              // ajax momen
+              $.ajax([
+                url: '/posts',
+                type: "POST",
+                cache: false,
+                data: {
+                  "jenis_absensi" : jenis_absen,
+                  "jam" : waktu_absen,
+                  "geoloc" : lokasi_absen
+                  "foto_absensi" : foto_absen,
+                  "_token" : token
+                },
+                success: function(response) {
+                  $wal.fire({
+                    type: 'success'
+                    icon: 'success'
+                    title: '$(response.message)',
+                    showConfirmButton: false,
+                    timer: 90
+                  });
 
-                  <tr id="index_$(response.data.id}">
-                      <td>${response.data.jenis_absen}</td>
-                      <td>${response.data.waktu_absen}</td>
-                      <td>${response.data.lokasi_absen}</td>
-                      <td>${response.data.foto_absen}</td>
-                `;
+                  // bismillah proses post disini
+                  let post = `
 
-                $('#table-posts').prepend(post);
+                    <tr id="index_$(response.data.id}">
+                        <td>${response.data.jenis_absen}</td>
+                        <td>${response.data.waktu_absen}</td>
+                        <td>${response.data.lokasi_absen}</td>
+                        <td>${response.data.foto_absen}</td>
+                  `;
 
-                $('#jenis_absen').val('');
-                $('#waktu_absen').val('');
-                $('#lokasi_absen').val('');
-                $('#foto_absen').val('');
+                  $('#table-posts').prepend(post);
 
-                $('modal-create').modal('hide');
-              }
+                  $('#jenis_absen').val('');
+                  $('#waktu_absen').val('');
+                  $('#lokasi_absen').val('');
+                  $('#foto_absen').val('');
 
-              error:function(error) {
-
-                if(error.responseJSON.jenis_absen[0]) {
-
-                  //show alert
-                  $('#alert-title').removeClass('d-none');
-                  $('#alert-title').addClass('d-block');
-
-                  //add message to alert
-                  $('#alert-title').html(error.responseJSON.title[0]);
-
+                  $('modal-create').modal('hide');
                 }
 
-                if(error.responseJSON.waktu_absen[0]) {
+                error:function(error) {
 
-                  //show alert
-                  $('#alert-title').removeClass('d-none');
-                  $('#alert-title').addClass('d-block');
+                  if(error.responseJSON.jenis_absen[0]) {
 
-                  //add message to alert
-                  $('#alert-title').html(error.responseJSON.title[0]);
+                    //show alert
+                    $('#alert-title').removeClass('d-none');
+                    $('#alert-title').addClass('d-block');
+
+                    //add message to alert
+                    $('#alert-title').html(error.responseJSON.title[0]);
+
+                  }
+
+                  if(error.responseJSON.waktu_absen[0]) {
+
+                    //show alert
+                    $('#alert-title').removeClass('d-none');
+                    $('#alert-title').addClass('d-block');
+
+                    //add message to alert
+                    $('#alert-title').html(error.responseJSON.title[0]);
+                  }
+
+                  if(error.responseJSON.lokasi_absen[0]) {
+
+                    //show alert
+                    $('#alert-title').removeClass('d-none');
+                    $('#alert-title').addClass('d-block');
+
+                    //add message to alert
+                    $('#alert-title').html(error.responseJSON.title[0]);
+                  }
+
+                  if(error.responseJSON.foto_absen[0]) {
+
+                    //show alert
+                    $('#alert-title').removeClass('d-none');
+                    $('#alert-title').addClass('d-block');
+
+                    //add message to alert
+                    $('#alert-title').html(error.responseJSON.title[0]);
+
+                  }
                 }
+              ]);
 
-                if(error.responseJSON.lokasi_absen[0]) {
-
-                  //show alert
-                  $('#alert-title').removeClass('d-none');
-                  $('#alert-title').addClass('d-block');
-
-                  //add message to alert
-                  $('#alert-title').html(error.responseJSON.title[0]);
-                }
-
-                if(error.responseJSON.foto_absen[0]) {
-
-                  //show alert
-                  $('#alert-title').removeClass('d-none');
-                  $('#alert-title').addClass('d-block');
-
-                  //add message to alert
-                  $('#alert-title').html(error.responseJSON.title[0]);
-
-                }
-              }
-            ]);
-
-          });
-            </script>
-            @endsection
-         
+            });
           </script>
         </div>
       </form>

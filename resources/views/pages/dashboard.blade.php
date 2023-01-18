@@ -30,14 +30,9 @@
               <div class="chart tab-pane active text-center" id="sales-chart" style="position: relative; height: 300px;">
                 <!-- ./col -->
                 <input class="knob" data-readonly="true" value="{{ 30 }}" data-width="250" data-height="250" data-fgColor="#f56954" style="align-items: center">
-                <div class="knob-label text-center"><strong>Hari</strong></div>
+                <div class="knob-label text-center" style="padding: 20px"><h4 style="font-weight: 600">Hari</h4></div>
                 {{-- <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas> --}}
               </div>
-              <script>
-              {{-- <script>
-                var ctx = document.getElementById('sales-chart').getcontext('2d');
-                // script buat get database ke piechartnya, sdh coba bbrp contoh tp ttp syntax error
-              </script> --}}
             </div>
           </div><!-- /.card-body -->
         </div>
@@ -69,7 +64,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">
-          <i class="fas fa-chart-line mr-1" style="color: var(--soapstone)"></i>
+          <i class="fas fa-chart-line mr-1" style="color: var(--dune)"></i>
           Riwayat Jam Datang / Pulang
         </h3>
 
@@ -78,8 +73,12 @@
       </div>
       <div class="card-body">
         <canvas class="chart" id="line-chart" style="min-height: 250px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
-        <input type="month" onchange="filterChart(this)" />
-        <button onclick="reset()">Reset</button>
+        <div class="input-group col-4">
+          <input class="form-control" type="month" onchange="filterChart(this)" />
+          <div class="input-group-append">
+            <button class="btn btn-default" onclick="reset()">Reset</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
