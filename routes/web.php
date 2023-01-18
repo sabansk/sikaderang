@@ -31,7 +31,6 @@ Route::post('/submit', [KehadiranController::class, 'store']);
 
 
 Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth');
-
 Route::get('/admin', [AdminDashboardController::class, 'show']);
 
 Route::get('/superAdmin', [SuperAdminDashboardController::class, 'index']);
