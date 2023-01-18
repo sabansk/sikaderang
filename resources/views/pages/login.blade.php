@@ -33,15 +33,15 @@
             @endif
 
             @if(session()->has('loginError'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="overflow: hidden; opacity: 0.7">
                     {{ session('loginError') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="transform: scale(0.7); height: 10px !important; width: 10px !important" onclick="this.parentElement.style.display='none';"></button>
                 </div>
             @endif
 
-            <div class="login-box login-logo">
-                <a class="prevent-select"><strong>Sistem Informasi Kehadiran<br>Peserta Praktek Kerja
-                        Lapangan</strong></a><br>
+            <div class="login-box login-logo" style="margin-bottom: 0">
+                <a class="prevent-select"><h4 style="font-weight:600">Sistem Informasi Kehadiran<br>Peserta Praktek Kerja
+                        Lapangan</h4></a><br>
                 <img src="AdminLTE\dist\img\gowa.png" alt="Logo Gowa" style="height:100px">
             </div>
             <!-- /.login-logo -->

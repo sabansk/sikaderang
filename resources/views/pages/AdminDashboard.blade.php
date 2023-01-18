@@ -5,9 +5,9 @@
 <!-- Main Sidebar Container -->
 @include('layouts/sidebarAdmin')
 <!-- Preloader -->
-<div class="preloader flex-column justify-content-center align-items-center">
+{{-- <div class="preloader flex-column justify-content-center align-items-center">
   <img class="animation__shake" src="AdminLTE/dist/img/gowa.png" alt="SikaderangLogo" height="60" width="60">
-</div>
+</div> --}}
 <!-- Main content -->
 <div class="content">
   <div class="container-fluid">
@@ -66,7 +66,10 @@
             <!-- /.d-flex -->
 
             <div class="position-relative mb-4">
-              <canvas id="attendances-chart" height="227"></canvas>
+              <canvas id="attendances-chart" style="max-height: 250px"></canvas>
+              <br>
+              <input type="month" onchange="filterChart(this)" />
+              <button onclick="reset()">Reset</button>
             </div>
           </div>
         </div>
@@ -97,11 +100,11 @@
               <!-- Morris chart - Gender -->
               <div class="chart tab-pane active" id="tab-gender" style="position: relative; height: 300px;">
                 <!-- Chart for jenis kelamin -->
-                <canvas id="chart-gender" height="200"></canvas>
+                <canvas id="genderChart" height="200"></canvas>
               </div>
               <!-- Morris chart - Background -->
               <div class="chart tab-pane" id="tab-background" style="position: relative; height: 300px;">
-                <canvas id="chart-background" height="200"></canvas>
+                <canvas id="backgroundChart" height="200"></canvas>
               </div>
             </div>
           </div>

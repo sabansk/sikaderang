@@ -81,10 +81,10 @@
 <!-- overlayScrollbars -->
 <script src="AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- Dashboard User -->
-<script src="AdminLTE/dist/js/pages/dashboardUser.js"></script>
+{{-- <script src="AdminLTE/dist/js/pages/dashboardUser.js"></script> --}}
 {{-- <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script> --}}
 <!-- Admin & Super Admin Dashboard --> <!-- Jika diaktifkan, maka akan mengganggu filterChart() -->
-{{-- <script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script> --}}
+<script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script>
 {{-- @pushOnce('scripts')
 @endPushOnce --}}
 <!-- AdminLTE App -->

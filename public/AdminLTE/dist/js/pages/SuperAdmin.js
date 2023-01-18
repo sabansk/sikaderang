@@ -89,14 +89,14 @@ $(document).ready(function() {
     },
     options: {
       maintainAspectRatio: false,
-      // tooltips: {
-      //   mode: mode,
-      //   intersect: intersect
-      // },
-      // hover: {
-      //   mode: mode,
-      //   intersect: intersect
-      // },
+      tooltips: {
+        mode: mode,
+        intersect: intersect
+      },
+      hover: {
+        mode: mode,
+        intersect: intersect
+      },
       legend: {
         display: false
       },
@@ -137,17 +137,15 @@ $(document).ready(function() {
 
   })
 
-  var $attendancesChart = $('#attendances-chart')
+})
+
+var $attendancesChart = $('#attendances-chart').get(0).getContext('2d')
   // eslint-disable-next-line no-unused-vars
   var attendancesChart = new Chart($attendancesChart, {
     type: 'line',
     data: {
       labels: [
-        'Dec 1', 'Dec 2', 'Dec 3', 'Dec 4', 'Dec 5', 'Dec 6', 'Dec 7',
-        'Dec 8', 'Dec 9', 'Dec 10', 'Dec 11', 'Dec 12', 'Dec 13', 'Dec 14',
-        'Dec 15', 'Dec 16', 'Dec 17', 'Dec 18', 'Dec 19', 'Dec 20', 'Dec 21',
-        'Dec 22', 'Dec 23', 'Dec 24', 'Dec 25', 'Dec 26', 'Dec 27', 'Dec 28',
-        'Dec 29', 'Dec 30', 'Dec 31'
+        '2022-01-01', '2022-02-01', '2022-06-01', '2022-10-01', '2022-12-01', '2023-01-01'
       ],
       datasets: [{
         data: [
@@ -194,6 +192,12 @@ $(document).ready(function() {
           }, ticksStyle)
         }],
         xAxes: [{
+          min: '2022-01-01',
+          max: '2022-12-31',
+          type: 'time',
+          time: {
+            unit: 'day'
+          },
           display: true,
           gridLines: {
             display: true
@@ -203,4 +207,30 @@ $(document).ready(function() {
       }
     }
   })
-})
+
+  // filterChart function
+  function filterChart(date){
+    console.log(date.value);
+    const year = date.value.substring(0, 4);
+    const month = date.value.substring(5, 7);
+    console.log(month);
+
+    const lastDay = (y, m) => {
+      return new Date(y, m, 0).getDate()
+    };
+
+    lastDay(year, month);
+
+    const startDate = date.value + "-" + "01";
+    const endDate = date.value + "-" + lastDay(year, month);
+
+    $attendancesChart.options.scales.xAxes.min = startDate;
+    $attendancesChart.options.scales.xAxes.max = endDate;
+    $attendancesChart.update();
+  }
+
+  function reset() {
+    $attendancesChart.options.scales.xAxes.min = '2022-01-01';
+    $attendancesChart.options.scales.xAxes.max = '2022-12-31';
+    $attendancesChart.update();
+  }

@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root{
+  /* color */
+  --orange: #FA9926;
+  --yellow: #FFDC4D;
+  --orange-secondary : #FCF3E6;
+  --yellow-electric: #FECB15;
+  --yelow-secondary:#E3DC3C;
+  --yelow-disable:#a3a325;
+  --yellow-callout: #FFFEEE;
+  --white: #FEFEFE;
+  --blue: #29A3B9;
+  --blue-dark: #043340;
+  --dark: #1E1E1E;
+  --pink: #ED5A5F;
+  --red: #ED1C24;
+  --green: #54BB8A;
+  --green-disable: #2f6c4f;
+  --secondary: #4D6268;
+  --grey:#DBDBDB;
+  --grey-secondary: #686868;
+  /* title */
+  --size-title: 34px;
+  
+  /* bg */
+  --white-bg: #F4F4F4;
+  --padding-bg : 4px 14px;
+  --border-bg: 8px;
+  --margin-bottom : 20px;
+  
+  /* grafik */
+  --grey-border: #D3D1D1;
+}
+
+/* section style */
+.section-style {
+  background-color: var(--white-bg);
+  border-radius: var(--border-bg);
+  padding: var(--padding-bg);
+  margin-bottom: var(--margin-bottom);
+}
+.form-control {
+  height: 36px;
+}
+
+/* navbar style */
+nav {
+  display: flex;
+  justify-content: space-around;
+  height: 64px;
+  background-color: var(--white);
+  border-bottom: solid 1px var(--blue-dark);
+}
+nav .container-nav{
+  width: 98vw;
+  padding: 10px 0 10px 6px;
+  display: flex;
+  justify-content: space-between;
+}
+nav .container-nav .title-site{
+  margin-top: 3px;
+  height: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+nav .container-nav .title-site h1{
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #29A3B9;
+  line-height: 0px;
+  margin-top: 10px;
+}
+nav .container-nav .title-site span{
+  font-size: 11px;
+  /* background-color: #7b9296; */
+}
+nav .container-nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-end;
+}
+nav .container-nav ul li{
+  float: left;
+  margin: 0 5px;
+}
+nav .container-nav ul li.profile{
+  display: flex;
+  flex-direction: column;
+    justify-content: flex-end
+}
+nav .container-nav ul li.profile span{
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+nav .container-nav ul li.profile h1{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 0px;
+  text-align: right;
+}
+nav .container-nav ul li.profile-image{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+nav .container-nav ul li.profile-image button{
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+/* nav .container-nav ul li.profile-image{
+  width: 108px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+nav .container-nav ul li.profile-image button{
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  width: 98px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  justify-content: space-between;
+  padding-right: 12px;
+  background-color: var(--blue-dark);
+}
+nav .container-nav ul li.profile-image button img{
+  width: 24px;
+} */
+/* main */
+main {
+  display: flex;
+  background-color: var(--white);
+}
+main aside {
+  background-color: #043340;
+  width: 216px;
+  height: 100vw;
+  position: fixed;
+  top: 64px;
+  left: 0;
+}
+main aside ul.logo{
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0px;
+  margin-top: 24px;
+}
+main aside ul{
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0px;
+  margin-top: 24px;
+}
+main aside ul li.logo-nav{
+  margin-bottom: 18px;
+}
+main aside li.logo-nav img{
+  width: 52px;
+}
+main aside ul.navs li{
+  margin: 10px 0;
+  width: 152px;
+  display: flex;
+}
+main aside ul.navs li a{
+  padding: 12px 8px;
+  width: 100%;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--white);
+}
+main aside ul.navs li a:hover{
+  background-color: var(--white);
+  color: var(--blue-dark);
+  font-weight: 600;
+  border-radius: 4px;
+}
+main aside ul.navs li a.active{
+  background-color: var(--white);
+  color: var(--blue-dark);
+  font-weight: 600;
+  border-radius: 4px;
+}
+main aside ul.navs li a i{
+  padding-right: 16px;
+}
+
+/* callout */
+main .content .callout{
+  background-color: var(--yellow-callout);
+  display: flex;
+  border-radius: 4px;
+  border: solid 1px var(--grey);
+  margin: 16px 0;
+}
+main .content .callout ul{
+  display: flex;
+  list-style: none;
+  margin-bottom: 0px;
+  padding: 12px 16px;
+}
+main .content .callout ul li{
+  color: var(--secondary);
+  font-size: 12px;
+}
+main .content .callout ul li i.fa-solid{
+  font-size: 10px;
+  padding-right: 16px;
+}
+
+/* callout detail gardu*/
+main .content-detail .callout{
+  background-color: var(--yellow-callout);
+  display: flex;
+  border-radius: 4px;
+  border: solid 1px var(--grey);
+  margin: 16px 0;
+}
+main .content-detail .callout ul{
+  display: flex;
+  list-style: none;
+  margin-bottom: 0px;
+  padding: 12px 16px;
+}
+main .content-detail .callout ul li{
+  color: var(--secondary);
+  font-size: 12px;
+}
+main .content-detail .callout ul li i.fa-solid{
+  font-size: 10px;
+  padding-right: 16px;
+}

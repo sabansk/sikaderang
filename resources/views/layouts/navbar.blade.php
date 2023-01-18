@@ -39,7 +39,7 @@
       </a>
     @endif --}}
     <!-- Log Out Menu -->
-    <form action="/logout" method="POST">
+    <form action="/logout" method="post">
       @csrf
       <li class="nav-item">
         <a class="nav-link navbar-icon" href="/logout" onclick="return confirm('Are you sure?')">

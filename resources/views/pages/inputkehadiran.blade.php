@@ -69,12 +69,30 @@
           <div class="form-group">
             <label>Masukkan Lokasi Saat Ini</label>
             <button type="button" id="getLocationButton" class="btn btn-block btn-info">Simpan Lokasi</button>
+            <input type="text" id="geolocation" class="btn-block" value="" readonly=true />
+
             <script>
+              //option
+              const options = {
+                enableHighAccuracy: true,
+                timeout: 60000
+              };
+
+              function error(err) {
+                console.warn(`ERROR(${err.code}): ${err.message}`);
+              }
+
               document.getElementById('getLocationButton').addEventListener('click', () => {
-                navigator.geolocation.getCurrentPosition((position) => {
+                navigator.geolocation.getCurrentPosition((position,err,options) => {
                   const latitude = position.coords.latitude;
                   const longitude = position.coords.longitude;
+<<<<<<< HEAD
                   const result = (`Latitude: ${latitude} Longitude: ${longitude}`);
+=======
+                  const result = (`Latitude: ${latitude} Longitude: ${longitude}`).toString();
+                  document.getElementById("geolocation").value = result;
+
+>>>>>>> f2d0868d16663d87dca833e2b31d17426c9f0e71
                 });
               });
             </script>
@@ -85,7 +103,7 @@
             <label>Masukkan Foto Saat Ini</label><br>
             <div class="card">
               <div id="my-camera" class="img-fluid bg-dark rounded-top embed-responsive align-center" style="object-fit: cover; width: 100%" autoplay></div>
-              <input type="button" value="Ambil Gambar" onCLick ="take_capture()" class="btn btn-secondary" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
+              <input type="button" value="Ambil Gambar" onCLick ="take_capture()" class="btn btn-info" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
               <input type="hidden" name="image" class="image-tag">
             </div>
             <div id="capture-results" class="text-center">Hasil Foto Anda akan Tampil Disini</div>
@@ -107,35 +125,21 @@
                   });
               }
             </script>
-            {{-- <script>
-              Webcam.set({
-                // width: videoWidth,
-                height: 250,
-                // dest_width: 140.625,
-                // dest_height: 250,
-                image_format: 'jpeg',
-                jpeg_quality: 90
-              });
-
-              Webcam.attach("#my-camera");
-
-              function take_capture() {
-                Webcam.snap(function(data_uri) {
-                  $(".image-tag").val(data_uri);
-                  document.getElementById('capture-results').innerHTML = '<img src="'+data_uri+'" class="img-thumbnail"/>';
-                });
-              }
-            </script> --}}
           </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary" id="setor_absen">Submit</button>
           <script>
+<<<<<<< HEAD
             // @section('script')
             <script type="text/javascript">
             
              $('body').on('click', '#btn-create-post', function () {
+=======
+            // button
+          $('body').on('click', '#btn-create-post', function () {
+>>>>>>> f2d0868d16663d87dca833e2b31d17426c9f0e71
             // open modal
             $('modal-create').modal('show');
           });
@@ -153,11 +157,18 @@
 
             // ajax momen
             $.ajax([
+<<<<<<< HEAD
               
               url : '/submit', // sesuai di route
               type : "POST",
               cache : false,
               data : {
+=======
+              url: '/posts',
+              type: "POST",
+              cache: false,
+              data: {
+>>>>>>> f2d0868d16663d87dca833e2b31d17426c9f0e71
                 "jenis_absensi" : jenis_absen,
                 "jam" : waktu_absen,
                 "geoloc" : lokasi_absen
@@ -194,7 +205,7 @@
               }
 
               error:function(error) {
-                
+
                 if(error.responseJSON.jenis_absen[0]) {
 
                   //show alert
