@@ -21,8 +21,9 @@ class UserSeeder extends Seeder
             'nama_peserta' => Str::random(10),
             'asal_instansi' => Str::random(35),
             'dinas_magang' => Str::random(40),
-            'email' => 'user1@gowakab.go.id',
-            'password' => Hash::make("akubang"),
+            'roles' => 'user',
+            'email' => 'usermagang1@gowakab.go.id',
+            'password' => Hash::make("bismillahsukses"),
         ]);
     }
 }

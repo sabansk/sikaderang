@@ -27,6 +27,7 @@ Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
+Route::post('/submit', [KehadiranController::class, 'store']);
 
 
 Route::get('/dashboard', [DashboardController::class, 'show']); //->middleware('auth')
