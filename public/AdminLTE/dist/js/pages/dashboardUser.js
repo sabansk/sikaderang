@@ -1,4 +1,8 @@
-/* Script for Map in Dashboard */
+/***************************************
+  Lokasi:
+  View Maps untuk Melihat titik Lokasi
+  paling sering dilakukan presensi
+****************************************/
 var map = L.map('map').setView([-5.200963503628385, 119.453547417958], 18);
 
 L.tileLayer('http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}', {
@@ -43,6 +47,12 @@ map.scrollWheelZoom.disable();
 if (map.tap) map.tap.disable();
 document.getElementById('map').style.cursor='default';
 
+
+/*********************************************
+  Total Kehadiran:
+  Knob Chart untuk Melihat total kehadiran
+  dihitung dari check in & check out per hari
+**********************************************/
 $(document).ready(function () {
   'use strict'
   /* Menampilkan Chart */
@@ -111,7 +121,11 @@ $(document).ready(function () {
     })
 })
 
-// Sales graph chart
+/***************************************
+  Riwayat Jam Datang / Jam Pulang:
+  Line Chart untuk Melihat jam masuk dan
+  jam pulang tiap hari
+****************************************/
 var checkingChartCanvas = $('#line-chart').get(0).getContext('2d')
 
 const data = {

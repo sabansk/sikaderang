@@ -33,7 +33,7 @@
             @endif
 
             @if(session()->has('loginError'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="overflow: hidden; opacity: 0.7">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="overflow: hidden">
                     {{ session('loginError') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="transform: scale(0.7); height: 10px !important; width: 10px !important" onclick="this.parentElement.style.display='none';"></button>
                 </div>
