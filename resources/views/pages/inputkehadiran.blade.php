@@ -2,8 +2,13 @@
 
 @section('contentUser')
 @include('layouts/sidebarIntern')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!-- Main content -->
 <section class="content">
+
   <div class="container-fluid col-sm-6" enctype="multipart/form-data">
     @if(session()->has('success'))
     <div class="alert alert-primary" role="alert">
@@ -18,14 +23,15 @@
       <!-- /.card-header -->
       <!-- form start -->
       <form action="/submit" method="POST">
-        @csrf
+      @csrf
         <div class="card-body">
           <!-- Types of Presences -->
           <div class="form-group">
             <label>Jam Kedatangan / Kepulangan</label>
                   <select class="form-control select2" id = "jenis_absen"style="width: 100%;">
-                    <option id="waktu_datang" selected="selected">Jam Kedatangan</option>
-                    <option id="waktu_pulang">Jam Kepulangan</option>
+                    <option selected>Silahkan pilih ...</option>
+                    <option value="waktu_datang">Jam Kedatangan</option>
+                    <option value="waktu_pulang">Jam Kepulangan</option>
                   </select>
             <script>
               // button post event
@@ -68,7 +74,7 @@
                 navigator.geolocation.getCurrentPosition((position) => {
                   const latitude = position.coords.latitude;
                   const longitude = position.coords.longitude;
-                  const result = (`Latitude: ${latitude} Longitude: ${longitude}`).toString();
+                  const result = (`Latitude: ${latitude} Longitude: ${longitude}`);
                 });
               });
             </script>
@@ -126,14 +132,16 @@
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary" id="setor_absen">Submit</button>
           <script>
-          // button
-          $('body').on('click', '#btn-create-post', function () {
+            // @section('script')
+            <script type="text/javascript">
+            
+             $('body').on('click', '#btn-create-post', function () {
             // open modal
             $('modal-create').modal('show');
           });
 
-          // action post
-          $('setor_absen').click(function(e) {
+         
+          $('#setor_absen').click(function(e) {
             e.preventDefault();
 
             // define var
@@ -141,15 +149,15 @@
             let waktu_absen = $('#dateTimeInput').val();
             let lokasi_absen = $('getLocationButton').val();
             let foto_absen = $('capture_results').val();
-            let token = $("meta[name='csrf-token']").attr("content");
+            let token = "{{ csrf_token() }}";
 
             // ajax momen
             $.ajax([
               
-              url: '/posts',
-              type: "POST",
-              cache: false,
-              data: {
+              url : '/submit', // sesuai di route
+              type : "POST",
+              cache : false,
+              data : {
                 "jenis_absensi" : jenis_absen,
                 "jam" : waktu_absen,
                 "geoloc" : lokasi_absen
@@ -232,6 +240,9 @@
             ]);
 
           });
+            </script>
+            @endsection
+         
           </script>
         </div>
       </form>
