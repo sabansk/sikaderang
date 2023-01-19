@@ -63,7 +63,7 @@
           <div class="form-group">
             <label>Masukkan Lokasi Saat Ini</label>
             <button type="button" id="getLocationButton" class="btn btn-block btn-info">Simpan Lokasi</button>
-            <input type="text" id="geolocation" class="btn-block" value="" readonly=true />
+            <input type="text" id="geolocation" class="btn btn-block" value="" readonly=true />
 
             <script>
               //option
