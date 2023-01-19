@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="AdminLTE/plugins/fontawesome-free/css/all.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-  
+
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -81,18 +81,10 @@
 <script src="AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App (for Preloader)-->
+<script src="AdminLTE/dist/js/adminlte.js"></script>
 <!-- Dashboard User -->
 <script src="AdminLTE/dist/js/pages/dashboardUser.js"></script>
-{{-- <script src="AdminLTE/plugins/chart.js/Chart.min.js"></script> --}}
-<!-- Admin & Super Admin Dashboard --> <!-- Jika diaktifkan, maka akan mengganggu filterChart() -->
-{{-- <script src="AdminLTE/dist/js/pages/SuperAdmin.js"></script> --}}
-{{-- @pushOnce('scripts')
-@endPushOnce --}}
-<!-- AdminLTE App -->
-{{-- <script src="AdminLTE/dist/js/adminlte.js"></script> --}}
 
 </body>
-
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-{{-- <script src="AdminLTE/dist/js/pages/dashboard3.js"></script> --}}
 </html>

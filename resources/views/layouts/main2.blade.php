@@ -41,7 +41,10 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="AdminLTE/dist/img/gowa.png" alt="SikaderangLogo" height="60" width="60">
+  </div>
   <!-- Navbar -->
   @include('layouts/navbar')
   <!-- /.navbar -->
@@ -208,13 +211,10 @@
 <script src="AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App (for Preloader)-->
+<script src="AdminLTE/dist/js/adminlte.js"></script>
 <!-- Admin & Super Admin Dashboard --> <!-- Jika diaktifkan, maka akan mengganggu filterChart() -->
 <script src="AdminLTE/dist/js/pages/admin&SuperAdmin.js"></script>
-<!-- AdminLTE App -->
-<script src="AdminLTE/dist/js/adminlte.js"></script>
 
 </body>
-
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="AdminLTE/dist/js/pages/dashboard3.js"></script>
 </html>
