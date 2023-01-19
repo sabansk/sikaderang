@@ -1,18 +1,15 @@
 @extends('layouts.main')
 
 @section('contentUser')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 @include('layouts/sidebarIntern')
 <!-- Main content -->
 <section class="content">
-
   <div class="container-fluid col-sm-6" enctype="multipart/form-data">
-    {{-- @if(session()->has('success'))
+    @if(session()->has('success'))
     <div class="alert alert-primary" role="alert">
       {{ session('success') }}
     </div>
-    @endif --}}
+    @endif
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
@@ -27,8 +24,8 @@
           <div class="form-group">
             <label>Jam Kedatangan / Kepulangan</label>
                   <select class="form-control select2" id = "jenis_absen"style="width: 100%;">
-                    <option value="waktu_datang" selected>Jam Kedatangan</option>
-                    <option value="waktu_pulang">Jam Kepulangan</option>
+                    <option id="waktu_datang" selected="selected">Jam Kedatangan</option>
+                    <option id="waktu_pulang">Jam Kepulangan</option>
                   </select>
             <script>
               // button post event
@@ -66,7 +63,7 @@
           <div class="form-group">
             <label>Masukkan Lokasi Saat Ini</label>
             <button type="button" id="getLocationButton" class="btn btn-block btn-info">Simpan Lokasi</button>
-            <input type="text" id="geolocation" class="btn btn-block" value="" readonly=true />
+            <input type="text" id="geolocation" class="btn-block" value="" readonly=true />
 
             <script>
               //option
@@ -123,112 +120,111 @@
         <!-- /.card-body -->
         <div class="card-footer text-center">
           <button type="submit" class="btn btn-primary" id="setor_absen">Submit</button>
-          <script>
+          <script type="text/javascript">
             // button
-            $('body').on('click', '#btn-create-post', function () {
-              // open modal
-              $('modal-create').modal('show');
-            });
+          $('body').on('click', '#btn-create-post', function () {
+            // open modal
+            $('modal-create').modal('show');
+          });
 
+          // action post
+          $('#setor_absen').click(function(e) {
+            e.preventDefault();
 
-            $('#setor_absen').click(function(e) {
-              e.preventDefault();
+            // define var
+            let jenis_absen = $(document.getElementById("jenis_absen")).val();
+            let waktu_absen = $(document.getElementById("dateTimeInput")).val();
+            let lokasi_absen = $(document.getElementById("geolocation")).val();
+            let foto_absen = $(dpcument.getElementById("capture-results")).val();
+            let token = $("meta[name='csrf-token']").attr("content");
 
-              // define var
-              let jenis_absen = $('#jenis_absen').val();
-              let waktu_absen = $('#dateTimeInput').val();
-              let lokasi_absen = $('getLocationButton').val();
-              let foto_absen = $('capture_results').val();
-              let token = "{{ csrf_token() }}";
+            // ajax momen
+            $.ajax([
+              url: '/submit',
+              type: "POST",
+              cache: false,
+              data: {
+                "jenis_absensi" : jenis_absen,
+                "jam" : waktu_absen,
+                "geoloc" : lokasi_absen
+                "foto_absensi" : foto_absen,
+                "_token" : token
+              },
+              success: function(response) {
+                $wal.fire({
+                  type: 'success'
+                  icon: 'success'
+                  title: '$(response.message)',
+                  showConfirmButton: false,
+                  timer: 3000
+                });
 
-              // ajax momen
-              $.ajax([
-                url: '/posts',
-                type: "POST",
-                cache: false,
-                data: {
-                  "jenis_absensi" : jenis_absen,
-                  "jam" : waktu_absen,
-                  "geoloc" : lokasi_absen
-                  "foto_absensi" : foto_absen,
-                  "_token" : token
-                },
-                success: function(response) {
-                  $wal.fire({
-                    type: 'success'
-                    icon: 'success'
-                    title: '$(response.message)',
-                    showConfirmButton: false,
-                    timer: 90
-                  });
+                // bismillah proses post disini
+                let post = `
+                  <tr id="index_$(response.data.id}">
+                      <td>${response.data.jenis_absen}</td>
+                      <td>${response.data.waktu_absen}</td>
+                      <td>${response.data.lokasi_absen}</td>
+                      <td>${response.data.foto_absen}</td>
+                `;
 
-                  // bismillah proses post disini
-                  let post = `
+                $('#table-posts').prepend(post);
 
-                    <tr id="index_$(response.data.id}">
-                        <td>${response.data.jenis_absen}</td>
-                        <td>${response.data.waktu_absen}</td>
-                        <td>${response.data.lokasi_absen}</td>
-                        <td>${response.data.foto_absen}</td>
-                  `;
+                $('#jenis_absen').val('');
+                $('#waktu_absen').val('');
+                $('#lokasi_absen').val('');
+                $('#foto_absen').val('');
 
-                  $('#table-posts').prepend(post);
+                $('modal-create').modal('hide');
+              }
 
-                  $('#jenis_absen').val('');
-                  $('#waktu_absen').val('');
-                  $('#lokasi_absen').val('');
-                  $('#foto_absen').val('');
+              error:function(error) {
 
-                  $('modal-create').modal('hide');
+                if(error.responseJSON.jenis_absen[0]) {
+
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
+
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
+
                 }
 
-                error:function(error) {
+                if(error.responseJSON.waktu_absen[0]) {
 
-                  if(error.responseJSON.jenis_absen[0]) {
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
 
-                    //show alert
-                    $('#alert-title').removeClass('d-none');
-                    $('#alert-title').addClass('d-block');
-
-                    //add message to alert
-                    $('#alert-title').html(error.responseJSON.title[0]);
-
-                  }
-
-                  if(error.responseJSON.waktu_absen[0]) {
-
-                    //show alert
-                    $('#alert-title').removeClass('d-none');
-                    $('#alert-title').addClass('d-block');
-
-                    //add message to alert
-                    $('#alert-title').html(error.responseJSON.title[0]);
-                  }
-
-                  if(error.responseJSON.lokasi_absen[0]) {
-
-                    //show alert
-                    $('#alert-title').removeClass('d-none');
-                    $('#alert-title').addClass('d-block');
-
-                    //add message to alert
-                    $('#alert-title').html(error.responseJSON.title[0]);
-                  }
-
-                  if(error.responseJSON.foto_absen[0]) {
-
-                    //show alert
-                    $('#alert-title').removeClass('d-none');
-                    $('#alert-title').addClass('d-block');
-
-                    //add message to alert
-                    $('#alert-title').html(error.responseJSON.title[0]);
-
-                  }
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
                 }
-              ]);
 
-            });
+                if(error.responseJSON.lokasi_absen[0]) {
+
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
+
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
+                }
+
+                if(error.responseJSON.foto_absen[0]) {
+
+                  //show alert
+                  $('#alert-title').removeClass('d-none');
+                  $('#alert-title').addClass('d-block');
+
+                  //add message to alert
+                  $('#alert-title').html(error.responseJSON.title[0]);
+
+                }
+              }
+            ]);
+
+          });
           </script>
         </div>
       </form>
