@@ -23,7 +23,7 @@
           <!-- Types of Presences -->
           <div class="form-group">
             <label>Jam Kedatangan / Kepulangan</label>
-                  <select class="form-control select2" id = "jenis_absen"style="width: 100%;">
+                  <select class="form-control select2" id = "jenis_absen"name = "opsi_jam"style="width: 100%;">
                     <option id="waktu_datang" selected="selected">Jam Kedatangan</option>
                     <option id="waktu_pulang">Jam Kepulangan</option>
                   </select>
@@ -63,7 +63,7 @@
           <div class="form-group">
             <label>Masukkan Lokasi Saat Ini</label>
             <button type="button" id="getLocationButton" class="btn btn-block btn-info">Simpan Lokasi</button>
-            <input type="text" id="geolocation" class="btn btn-block" value="" readonly=true />
+            <input type="text" id="geolocation" name="lokasigpsabsen" class="btn btn-block" value="" readonly=true />
 
             <script>
               //option
@@ -132,13 +132,15 @@
             e.preventDefault();
 
             // define var
-            let jenis_absen = $(document.getElementById("jenis_absen")).val();
+            $opsijamabsen = $request->opsi_jam OR $request->input('opsi_jam');
+            $geolokasiabsen = $request->input('lokasigpsabsen');
+            let jenis_absen = $opsijamabsen.val(); // ini tidak didapat ajax
             let waktu_absen = $(document.getElementById("dateTimeInput")).val();
-            let lokasi_absen = $(document.getElementById("geolocation")).val();
-            let foto_absen = $(dpcument.getElementById("capture-results")).val();
+            let lokasi_absen = $geolokasiabsen.val(); // ini juga >:(
+            let foto_absen = $(document.getElementById("capture-results")).val();
             let token = $("meta[name='csrf-token']").attr("content");
 
-            // ajax momen
+            // ajax here
             $.ajax([
               url: '/submit',
               type: "POST",

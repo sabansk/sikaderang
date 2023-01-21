@@ -5,6 +5,7 @@ use App\Models\PostModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class KehadiranController extends Controller
 {
@@ -16,12 +17,14 @@ class KehadiranController extends Controller
 
     public function store(Request $request){
 
+        dd($request->all());
+
        $validator = Validator::make($request->all(), [
 
         'jenis_absen' => 'required',
-        'waktu_absen' => 'required',
-        'lokasi_absen' => 'required',
-        'foto_absen' => 'required',
+        'jam' => 'required',
+        'geoloc' => 'required',
+        'foto_absensi' => 'required',
        ]);
 
        // ngecek validator kalo gagal
@@ -30,12 +33,12 @@ class KehadiranController extends Controller
         return response()->json($validator->errors(), 422);
        }
 
-       $post = PostModel::create([
-        'jenis_absen' => $request->jenis_absen,
-        'waktu_absen' => $request->waktu_absen,
-        'lokasi_absen' => $request->lokasi_absen,
-        'foto_absen' => $request->foto_absen
-       ]);
+       $post = PostModel::create($validator);
+
+       $post->save();
+
+       //DB::table('posts')->insert($data);
+
 
        return response()->json([
         'success' => true,
