@@ -5,7 +5,8 @@ use App\Models\PostModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Storage;
 
 class KehadiranController extends Controller
 {
@@ -17,7 +18,7 @@ class KehadiranController extends Controller
 
     public function store(Request $request){
 
-       //dd($request->all()); // ini buat ngecek data dari ajak yang dikirim ke controller apakah sudah masuk atau belum,
+    //    dd($request->all()); // ini buat ngecek data dari ajak yang dikirim ke controller apakah sudah masuk atau belum,
         // nanti data yang didapat sama ini dd request ditampilkan dalam bentuk json.
 
        $validator = Validator::make($request->all(), [
@@ -34,7 +35,29 @@ class KehadiranController extends Controller
         return response()->json($validator->errors(), 422);
        }
 
-       $post = PostModel::create($request->all());
+       $inputan = $request->all();
+       $inputan["user_id"] = Auth::user()->id;
+
+
+       $img = $request->foto_absensi;
+        $folderPath = "uploads/";
+        
+        $image_parts = explode(";base64,", $img);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type = $image_type_aux[1];
+        
+        $image_base64 = base64_decode($image_parts[1]);
+        $fileName = uniqid() . '.png';
+        
+        $file = $folderPath . $fileName;
+        Storage::disk('public')->put($file, $image_base64);
+
+        $inputan["foto_absensi"] = $fileName; // bagaimana cara supaya tersimpan di public
+        
+        // dd('Image uploaded successfully: '.$fileName);
+
+
+       $post = PostModel::create($inputan);
 
        $post->save();
 

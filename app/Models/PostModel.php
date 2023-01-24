@@ -10,13 +10,13 @@ class PostModel extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $fillable = [
+    // protected $fillable = [
 
-        'jenis_absensi',
-        'jam',
-        'foto_absensi',
-       'geoloc',
-    ];
+    //     'jenis_absensi',
+    //     'jam',
+    //     'foto_absensi',
+    //    'geoloc',
+    // ];
     protected $table = 'posts';
 
     public $timestamps = false;

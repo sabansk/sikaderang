@@ -23,9 +23,9 @@
           <!-- Types of Presences -->
           <div class="form-group">
             <label>Jam Kedatangan / Kepulangan</label>
-                  <select class="form-control select2" id = "jenis_absen"name = "jenis_absen"style="width: 100%;">
-                    <option id="waktu_datang" selected="selected">Jam Kedatangan</option>
-                    <option id="waktu_pulang">Jam Kepulangan</option>
+                  <select class="form-control" id = "jenis_absen" name = "jenis_absen"style="width: 100%;">
+                    <option value="waktu_datang" selected="selected">Jam Kedatangan</option>
+                    <option value="waktu_pulang">Jam Kepulangan</option>
                   </select>
             <script>
               // button post event
@@ -134,7 +134,7 @@
             // define var
             $opsijamabsen = $request->jenis_absen OR $request->input('jenis_absen');
             $geolokasiabsen = $request->input('geoloc');
-            let jenis_absen = $opsijamabsen.val(); 
+            let jenis_absen = $(document.getElementById("jenis_absen")).val(); 
             let waktu_absen = $(document.getElementById("jam")).val();
             let lokasi_absen = $geolokasiabsen.val(); 
             let foto_absen = $(document.getElementById("capture-results")).val();
