@@ -17,7 +17,8 @@ class KehadiranController extends Controller
 
     public function store(Request $request){
 
-        dd($request->all());
+       //dd($request->all()); // ini buat ngecek data dari ajak yang dikirim ke controller apakah sudah masuk atau belum,
+        // nanti data yang didapat sama ini dd request ditampilkan dalam bentuk json.
 
        $validator = Validator::make($request->all(), [
 
@@ -33,7 +34,7 @@ class KehadiranController extends Controller
         return response()->json($validator->errors(), 422);
        }
 
-       $post = PostModel::create($validator);
+       $post = PostModel::create($request->all());
 
        $post->save();
 

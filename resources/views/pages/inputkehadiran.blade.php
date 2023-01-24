@@ -17,13 +17,13 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form action="/submit" method="POST">
+      <form action="/kehadiran" method="POST">
         @csrf
         <div class="card-body">
           <!-- Types of Presences -->
           <div class="form-group">
             <label>Jam Kedatangan / Kepulangan</label>
-                  <select class="form-control select2" id = "jenis_absen"name = "opsi_jam"style="width: 100%;">
+                  <select class="form-control select2" id = "jenis_absen"name = "jenis_absen"style="width: 100%;">
                     <option id="waktu_datang" selected="selected">Jam Kedatangan</option>
                     <option id="waktu_pulang">Jam Kepulangan</option>
                   </select>
@@ -37,7 +37,7 @@
             <label>Tanggal & Waktu saat ini:</label>
             <div class="input-group date" id="reservationdatetime" data-target-input="dateString" style="object-fit: cover">
               <div onload="insertDateTime()" class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                  <input type="text" id="dateTimeInput" name="dateTimeInput" value="{{ Carbon\Carbon::now()->timezone('Asia/Makassar')->format('Y-m-d H:i:s') }}" class="form-control datetimepicker-input"/>
+                  <input type="text" id="jam" name="jam" value="{{ Carbon\Carbon::now()->timezone('Asia/Makassar')->format('Y-m-d H:i:s') }}" class="form-control datetimepicker-input"/>
                   <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
@@ -54,7 +54,7 @@
                 var mm = String(today.getMinutes().padstart(2, '0'));
                 var ss = String(today.getSeconds()).padstart(2, '0');
                 today = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + mm + ':' + ss;
-                document.getElementById("dateTimeInput").value = today;
+                document.getElementById("jam").value = today;
               }
             </script>
           </div>
@@ -63,7 +63,7 @@
           <div class="form-group">
             <label>Masukkan Lokasi Saat Ini</label>
             <button type="button" id="getLocationButton" class="btn btn-block btn-info">Simpan Lokasi</button>
-            <input type="text" id="geolocation" name="lokasigpsabsen" class="btn btn-block" value="" readonly=true />
+            <input type="text" id="geolocation" name="geoloc" class="btn btn-block" value="" readonly=true />
 
             <script>
               //option
@@ -94,7 +94,7 @@
             <div class="card">
               <div id="my-camera" class="img-fluid bg-dark rounded-top embed-responsive align-center" style="object-fit: cover; width: 100%" autoplay></div>
               <input type="button" value="Ambil Gambar" onCLick ="take_capture()" class="btn btn-info" style="border-top-left-radius: 0% !important; border-top-right-radius:0% !important">
-              <input type="hidden" name="image" class="image-tag">
+              <input type="hidden" name="foto_absensi" class="image-tag">
             </div>
             <div id="capture-results" class="text-center">Hasil Foto Anda akan Tampil Disini</div>
             <script language="JavaScript">
@@ -119,7 +119,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer text-center">
-          <button type="submit" class="btn btn-primary" id="setor_absen">Submit</button>
+          <button type="submit" class="btn btn-primary" id="setor_absen" method="POST">Submit</button>
           <script type="text/javascript">
             // button
           $('body').on('click', '#btn-create-post', function () {
@@ -132,28 +132,29 @@
             e.preventDefault();
 
             // define var
-            $opsijamabsen = $request->opsi_jam OR $request->input('opsi_jam');
-            $geolokasiabsen = $request->input('lokasigpsabsen');
-            let jenis_absen = $opsijamabsen.val(); // ini tidak didapat ajax
-            let waktu_absen = $(document.getElementById("dateTimeInput")).val();
-            let lokasi_absen = $geolokasiabsen.val(); // ini juga >:(
+            $opsijamabsen = $request->jenis_absen OR $request->input('jenis_absen');
+            $geolokasiabsen = $request->input('geoloc');
+            let jenis_absen = $opsijamabsen.val(); 
+            let waktu_absen = $(document.getElementById("jam")).val();
+            let lokasi_absen = $geolokasiabsen.val(); 
             let foto_absen = $(document.getElementById("capture-results")).val();
             let token = $("meta[name='csrf-token']").attr("content");
 
             // ajax here
             $.ajax([
-              url: '/submit',
+              url: base_url,
               type: "POST",
               cache: false,
               data: {
+               
                 "jenis_absensi" : jenis_absen,
                 "jam" : waktu_absen,
-                "geoloc" : lokasi_absen
+                "geoloc" : lokasi_absen,
                 "foto_absensi" : foto_absen,
                 "_token" : token
               },
               success: function(response) {
-                $wal.fire({
+                Swal.fire({
                   type: 'success'
                   icon: 'success'
                   title: '$(response.message)',
@@ -182,7 +183,7 @@
 
               error:function(error) {
 
-                if(error.responseJSON.jenis_absen[0]) {
+                if(error.responseJSON.jenis_absensi[0]) {
 
                   //show alert
                   $('#alert-title').removeClass('d-none');
@@ -193,7 +194,7 @@
 
                 }
 
-                if(error.responseJSON.waktu_absen[0]) {
+                if(error.responseJSON.waktu[0]) {
 
                   //show alert
                   $('#alert-title').removeClass('d-none');
@@ -203,7 +204,7 @@
                   $('#alert-title').html(error.responseJSON.title[0]);
                 }
 
-                if(error.responseJSON.lokasi_absen[0]) {
+                if(error.responseJSON.lokasi[0]) {
 
                   //show alert
                   $('#alert-title').removeClass('d-none');
@@ -213,7 +214,7 @@
                   $('#alert-title').html(error.responseJSON.title[0]);
                 }
 
-                if(error.responseJSON.foto_absen[0]) {
+                if(error.responseJSON.foto[0]) {
 
                   //show alert
                   $('#alert-title').removeClass('d-none');

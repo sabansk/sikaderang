@@ -11,15 +11,16 @@ class PostModel extends Model
 
     protected $guarded = ['id'];
     protected $fillable = [
-        'nama_peserta',
-        'asal_instansi',
-        'dinas_magang',
+
         'jenis_absensi',
         'jam',
         'foto_absensi',
        'geoloc',
     ];
     protected $table = 'posts';
+
+    public $timestamps = false;
+
 
 
 
